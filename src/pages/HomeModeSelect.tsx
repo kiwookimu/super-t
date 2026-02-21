@@ -63,7 +63,7 @@ const HomeModeSelect: React.FC<HomeModeSelectProps> = ({ currentMode, onSelect, 
     };
 
     return (
-        <div className="pb-28">
+        <div className="pb-28 px-5">
             {/* Header */}
             <header className="flex items-center gap-3 py-4">
                 <button onClick={onBack} className="p-2 -ml-2 rounded-full hover:bg-gray-100">
@@ -84,8 +84,8 @@ const HomeModeSelect: React.FC<HomeModeSelectProps> = ({ currentMode, onSelect, 
                         key={mode.id}
                         onClick={() => setSelectedMode(mode.id)}
                         className={`w-full text-left p-4 rounded-2xl border-2 transition-colors ${selectedMode === mode.id
-                                ? 'border-blue-500 bg-blue-50'
-                                : 'border-gray-200 bg-white'
+                            ? 'border-blue-500 bg-blue-50'
+                            : 'border-gray-200 bg-white'
                             }`}
                         whileTap={{ scale: 0.99 }}
                     >

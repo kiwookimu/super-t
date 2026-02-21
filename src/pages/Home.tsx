@@ -535,12 +535,118 @@ const DiscoverSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onN
             </motion.div>
         </section>
 
-        {/* New Products */}
+        {/* 🔥 인기 요금제 TOP 3 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                    <span className="text-base font-bold text-gray-900">🔥 인기 요금제 TOP 3</span>
+                </div>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/plans')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <div className="space-y-2">
+                {[
+                    { rank: 1, name: '5G 슈퍼플랜 베이직', price: '월 55,000원', data: '150GB', badge: '가성비', badgeColor: 'bg-blue-100 text-blue-600' },
+                    { rank: 2, name: '5G 프라임', price: '월 69,000원', data: '무제한', badge: 'BEST', badgeColor: 'bg-red-100 text-red-600' },
+                    { rank: 3, name: '5G 프라임 플러스', price: '월 85,000원', data: '무제한+', badge: '프리미엄', badgeColor: 'bg-purple-100 text-purple-600' },
+                ].map((plan) => (
+                    <motion.button
+                        key={plan.rank}
+                        onClick={() => onNavigate('/subscription/plan/change')}
+                        className="w-full bg-white/50 rounded-xl p-4 border border-gray-100/50 flex items-center gap-3 hover:bg-white/80 transition-colors"
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <span className="text-lg font-black text-blue-500 w-6">{plan.rank}</span>
+                        <div className="flex-1 text-left">
+                            <div className="flex items-center gap-2">
+                                <p className="text-sm font-semibold text-gray-900">{plan.name}</p>
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${plan.badgeColor}`}>{plan.badge}</span>
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">{plan.data} · {plan.price}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </motion.button>
+                ))}
+            </div>
+        </section>
+
+        {/* 📱 최신 기기 */}
         <section className="space-y-3">
-            <h2 className="text-base font-bold text-gray-900 px-1 drop-shadow-sm">신규 상품</h2>
+            <h2 className="text-base font-bold text-gray-900 px-1 drop-shadow-sm">📱 최신 기기</h2>
             <div className="grid grid-cols-2 gap-3">
+                <ProductCard title="Galaxy S24 Ultra" price="1,780,000원" tag="HOT" />
                 <ProductCard title="Galaxy Z Fold6" price="2,200,000원" tag="NEW" />
                 <ProductCard title="Galaxy Watch7" price="450,000원" tag="인기" />
+                <ProductCard title="Galaxy Buds3 Pro" price="359,000원" tag="BEST" />
+            </div>
+        </section>
+
+        {/* 🎯 맞춤 부가서비스 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <span className="text-base font-bold text-gray-900">🎯 맞춤 부가서비스</span>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/add-on')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <p className="text-xs text-gray-500 -mt-2">사용 패턴을 분석해 추천해드려요</p>
+            <div className="space-y-2">
+                {[
+                    { name: '데이터 안심 옵션', desc: '데이터 소진 시 자동 충전', price: '월 2,200원', icon: '🛡️', match: '98%' },
+                    { name: 'T 전화 부가통화', desc: '부가통화 300분 제공', price: '월 1,100원', icon: '📞', match: '92%' },
+                    { name: '스팸 차단 서비스', desc: 'AI 스팸 필터링', price: '무료', icon: '🚫', match: '87%' },
+                ].map((svc, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/add-on')}
+                        className="w-full bg-white/50 rounded-xl p-4 border border-gray-100/50 flex items-center gap-3 hover:bg-white/80 transition-colors"
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <span className="text-xl">{svc.icon}</span>
+                        <div className="flex-1 text-left">
+                            <div className="flex items-center gap-2">
+                                <p className="text-sm font-semibold text-gray-900">{svc.name}</p>
+                                <span className="text-[10px] px-1.5 py-0.5 bg-green-100 text-green-600 rounded-full font-bold">매칭 {svc.match}</span>
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5">{svc.desc} · {svc.price}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </motion.button>
+                ))}
+            </div>
+        </section>
+
+        {/* 📰 T소식 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <span className="text-base font-bold text-gray-900">📰 T소식</span>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/benefits/events')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <div className="space-y-2">
+                {[
+                    { title: '갤럭시 S24 사전예약 혜택', date: '2.15 ~ 2.28', tag: '이벤트', tagColor: 'bg-red-100 text-red-600' },
+                    { title: '5G 요금제 업그레이드 프로모션', date: '2.1 ~ 2.28', tag: '프로모션', tagColor: 'bg-blue-100 text-blue-600' },
+                    { title: 'T 우주 패스 신규 혜택 안내', date: '2.10', tag: '공지', tagColor: 'bg-gray-200 text-gray-600' },
+                ].map((news, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/benefits/events')}
+                        className="w-full bg-white/40 rounded-xl p-3 flex items-center justify-between hover:bg-white/70 transition-colors"
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <div className="flex-1 text-left">
+                            <div className="flex items-center gap-2 mb-0.5">
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${news.tagColor}`}>{news.tag}</span>
+                                <span className="text-[10px] text-gray-400">{news.date}</span>
+                            </div>
+                            <p className="text-sm text-gray-800 font-medium">{news.title}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-400 ml-2" />
+                    </motion.button>
+                ))}
             </div>
         </section>
     </>
@@ -569,23 +675,150 @@ const BenefitsSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onN
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-md">
                     <Star className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                     <p className="text-2xl font-bold text-gray-900">3,200 P</p>
                     <p className="text-sm text-gray-500">사용 가능 포인트</p>
                 </div>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/benefits/points')} className="bg-white/50 hover:bg-white/80 border-0">
+                    사용하기
+                </Button>
+            </div>
+        </section>
+
+        {/* 🎁 이달의 혜택 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <span className="text-base font-bold text-gray-900">🎁 이달의 혜택</span>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/benefits/monthly')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <div className="space-y-2">
+                {[
+                    { title: '스타벅스 아메리카노', desc: 'VIP 전용 50% 할인', icon: '☕', highlight: '50% OFF', highlightColor: 'text-red-500' },
+                    { title: 'CGV 영화 할인', desc: '매주 수요일 5,000원 할인', icon: '🎬', highlight: '5,000원↓', highlightColor: 'text-blue-500' },
+                    { title: '배달의민족 쿠폰', desc: '15,000원 이상 주문 시', icon: '🍔', highlight: '3,000원↓', highlightColor: 'text-green-600' },
+                ].map((item, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/benefits/monthly')}
+                        className="w-full bg-white/50 rounded-xl p-4 border border-gray-100/50 flex items-center gap-3 hover:bg-white/80 transition-colors"
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <span className="text-2xl">{item.icon}</span>
+                        <div className="flex-1 text-left">
+                            <p className="text-sm font-semibold text-gray-900">{item.title}</p>
+                            <p className="text-xs text-gray-500 mt-0.5">{item.desc}</p>
+                        </div>
+                        <span className={`text-sm font-bold ${item.highlightColor}`}>{item.highlight}</span>
+                    </motion.button>
+                ))}
             </div>
         </section>
 
         {/* Available Coupons */}
         <section className="space-y-3">
             <div className="flex justify-between items-center px-1">
-                <h2 className="text-base font-bold text-gray-900 drop-shadow-sm">사용 가능 쿠폰</h2>
+                <h2 className="text-base font-bold text-gray-900 drop-shadow-sm">🎟️ 사용 가능 쿠폰</h2>
                 <span className="text-sm font-semibold text-blue-600">5장</span>
             </div>
             <div className="space-y-2">
                 <CouponCard brand="스타벅스" discount="50%" expiry="2월 28일까지" />
                 <CouponCard brand="CGV" discount="5,000원" expiry="3월 15일까지" />
                 <CouponCard brand="배달의민족" discount="3,000원" expiry="2월 20일까지" />
+            </div>
+        </section>
+
+        {/* 📅 T day 캘린더 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <span className="text-base font-bold text-gray-900">📅 T day 캘린더</span>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/benefits/tday')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+                {[
+                    { day: '매주 화', brand: '투썸', desc: '아메리카노\n50%', active: false },
+                    { day: '매주 수', brand: 'CGV', desc: '영화\n5,000원↓', active: true },
+                    { day: '매주 목', brand: 'GS25', desc: '도시락\n1+1', active: false },
+                ].map((item, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/benefits/tday')}
+                        className={`p-3 rounded-xl text-center transition-colors ${item.active
+                            ? 'bg-blue-500 text-white shadow-lg shadow-blue-200'
+                            : 'bg-white/50 border border-gray-100/50 hover:bg-white/80'
+                            }`}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <p className={`text-[10px] font-bold mb-1 ${item.active ? 'text-blue-100' : 'text-gray-400'}`}>{item.day}</p>
+                        <p className={`text-sm font-bold mb-0.5 ${item.active ? 'text-white' : 'text-gray-900'}`}>{item.brand}</p>
+                        <p className={`text-[10px] whitespace-pre-line leading-tight ${item.active ? 'text-blue-100' : 'text-gray-500'}`}>{item.desc}</p>
+                    </motion.button>
+                ))}
+            </div>
+        </section>
+
+        {/* 🏷️ 제휴 할인 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex justify-between items-center">
+                <span className="text-base font-bold text-gray-900">🏷️ 제휴 할인</span>
+                <Button size="small" variant="weak" onClick={() => onNavigate('/benefits/partners')} className="bg-white/50 hover:bg-white/80 border-0">
+                    전체보기
+                </Button>
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+                {[
+                    { category: '카페', icon: '☕', count: 12, color: 'from-amber-400 to-orange-400' },
+                    { category: '외식', icon: '🍽️', count: 8, color: 'from-red-400 to-pink-400' },
+                    { category: '영화', icon: '🎬', count: 5, color: 'from-blue-400 to-indigo-400' },
+                    { category: '쇼핑', icon: '🛍️', count: 15, color: 'from-green-400 to-emerald-400' },
+                ].map((item, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/benefits/partners')}
+                        className="flex flex-col items-center py-3 rounded-xl bg-white/50 border border-gray-100/50 hover:bg-white/80 transition-colors"
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center mb-2 shadow-sm`}>
+                            <span className="text-lg">{item.icon}</span>
+                        </div>
+                        <p className="text-xs font-semibold text-gray-900">{item.category}</p>
+                        <p className="text-[10px] text-gray-400">{item.count}개</p>
+                    </motion.button>
+                ))}
+            </div>
+        </section>
+
+        {/* 🔔 놓치면 아쉬운 혜택 */}
+        <section className="glass-panel p-5 space-y-4">
+            <div className="flex items-center gap-2">
+                <span className="text-base font-bold text-gray-900">🔔 놓치면 아쉬운 혜택</span>
+                <span className="text-[10px] px-2 py-0.5 bg-red-100 text-red-600 rounded-full font-bold animate-pulse">긴급</span>
+            </div>
+            <div className="space-y-2">
+                {[
+                    { title: '배달의민족 3,000원 쿠폰', dday: 'D-1', desc: '내일 만료!' },
+                    { title: 'T 포인트 500P 소멸 예정', dday: 'D-5', desc: '2월 26일 소멸' },
+                    { title: 'VIP Pick 2월 혜택', dday: 'D-7', desc: '아직 선택 안했어요' },
+                ].map((item, i) => (
+                    <motion.button
+                        key={i}
+                        onClick={() => onNavigate('/benefits/coupons')}
+                        className="w-full bg-red-50/50 rounded-xl p-3 border border-red-100/30 flex items-center gap-3 hover:bg-red-50 transition-colors"
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <span className={`text-xs font-black px-2 py-1 rounded-lg ${i === 0 ? 'bg-red-500 text-white' : 'bg-red-100 text-red-600'}`}>
+                            {item.dday}
+                        </span>
+                        <div className="flex-1 text-left">
+                            <p className="text-sm font-semibold text-gray-900">{item.title}</p>
+                            <p className="text-[10px] text-gray-500">{item.desc}</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </motion.button>
+                ))}
             </div>
         </section>
     </>
@@ -609,7 +842,7 @@ const QuickAction = ({ icon, label, onClick }: { icon: React.ReactNode; label: s
 const QuickMenuItem = ({ icon, label, onClick }: { icon: React.ReactNode; label: string; onClick?: () => void }) => (
     <div
         className="glass-panel p-4 flex flex-col items-center justify-center space-y-2 cursor-pointer active:scale-95 transition-transform min-w-[80px]"
-        style={{ background: 'rgba(255, 255, 255, 0.95)' }}
+        style={{ background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'none', WebkitBackdropFilter: 'none', boxShadow: 'none', border: 'none' }}
         onClick={onClick}
     >
         <span className="text-gray-600">{icon}</span>
