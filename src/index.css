@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TDS Reset / Overrides if needed */
+:root {
+  --tds-font-family: 'Toss Product Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--tds-font-family);
+}
+
+:root {
+  /* === UXP Design Tokens === */
+
+  /* Spacing (UXP-001: 단순성) */
+  --uxp-spacing-xs: 4px;
+  --uxp-spacing-sm: 8px;
+  --uxp-spacing-md: 16px;
+  --uxp-spacing-lg: 24px;
+  --uxp-spacing-xl: 32px;
+  --uxp-spacing-2xl: 48px;
+
+  /* Typography (UXP-001: 가독성) */
+  --uxp-font-xs: 12px;
+  --uxp-font-sm: 14px;
+  --uxp-font-base: 16px;
+  --uxp-font-lg: 18px;
+  --uxp-font-xl: 20px;
+  --uxp-font-2xl: 24px;
+  --uxp-font-3xl: 28px;
+
+  /* Font Weight */
+  --uxp-weight-regular: 400;
+  --uxp-weight-medium: 500;
+  --uxp-weight-semibold: 600;
+  --uxp-weight-bold: 700;
+
+  /* Colors - Toss-inspired */
+  --uxp-color-primary: #0064FF;
+  --uxp-color-primary-hover: #0050CC;
+  --uxp-color-primary-light: #E8F1FF;
+  --uxp-color-success: #34C759;
+  --uxp-color-success-light: #E8F9ED;
+  --uxp-color-warning: #FF9500;
+  --uxp-color-warning-light: #FFF4E5;
+  --uxp-color-error: #FF3B30;
+  --uxp-color-error-light: #FFEBE9;
+
+  /* Text Colors */
+  --uxp-color-text: #191f28;
+  --uxp-color-text-secondary: #4e5968;
+  --uxp-color-text-muted: #8b95a1;
+  --uxp-color-text-disabled: #b0b8c1;
+
+  /* Background Colors */
+  --uxp-color-bg: #f2f4f6;
+  --uxp-color-bg-card: #ffffff;
+  --uxp-color-bg-elevated: #ffffff;
+  --uxp-color-bg-modal: rgba(0, 0, 0, 0.5);
+
+  /* Border */
+  --uxp-color-border: #e5e8eb;
+  --uxp-color-border-focus: #0064FF;
+
+  /* Card (UXP-002: Value First) */
+  --uxp-card-radius: 16px;
+  --uxp-card-radius-lg: 24px;
+  --uxp-card-padding: 20px;
+  --uxp-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --uxp-card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  /* Button (UXP-003: Clear Action) */
+  --uxp-button-radius: 12px;
+  --uxp-button-height: 52px;
+  --uxp-button-height-sm: 40px;
+
+  /* Input (UXP-004: 3초 답변) */
+  --uxp-input-radius: 12px;
+  --uxp-input-height: 52px;
+
+  /* Transition */
+  --uxp-transition-fast: 0.1s ease;
+  --uxp-transition-normal: 0.2s ease;
+  --uxp-transition-slow: 0.3s ease;
+
+  /* Legacy Toss Theme (backwards compatibility) */
+  --background: #f2f4f6;
+  --foreground: #191f28;
+  --card-bg: #ffffff;
+  --card-border: transparent;
+  --primary: #0064FF;
+  --primary-foreground: #ffffff;
+  --muted: #f9fafb;
+  --muted-foreground: #8b95a1;
+  --accent: #3182f6;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Toss-style Utilities */
+.toss-card {
+  background-color: var(--card-bg);
+  border-radius: 1.5rem;
+  /* rounded-3xl */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.toss-button {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: transform 0.1s ease, background-color 0.2s;
+}
+
+.toss-button:active {
+  transform: scale(0.96);
+  background-color: #0050cc;
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================
+   Liquid Glassmorphism Styles (Apple Style)
+   ========================================= */
+
+/* 1. Liquid Background Animation */
+@keyframes liquid-move {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.liquid-background {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f4f6;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.liquid-background::before,
+.liquid-background::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  animation: liquid-move 10s infinite alternate ease-in-out;
+}
+
+.liquid-background::before {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, rgba(59, 130, 246, 0.05) 70%);
+  top: -100px;
+  left: -100px;
+}
+
+.liquid-background::after {
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, rgba(139, 92, 246, 0.05) 70%);
+  bottom: -100px;
+  right: -100px;
+  animation-duration: 15s;
+}
+
+/* 2. Glass Panel (Replacer for toss-card) */
+.glass-panel {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  /* 3D Thickness Effect */
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    /* Drop Shadow */
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    /* Top Edge Highlight */
+    inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+  /* Bottom Edge Shadow */
+
+  border-radius: 1.5rem;
+}
+
+/* Glass Buttons */
+.glass-button {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
+  backdrop-filter: blur(12px);
+
+  /* 3D Thickness Effect */
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(209, 213, 219, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-button:active {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(1px) scale(0.98);
+  border-bottom-width: 1px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
