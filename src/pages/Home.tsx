@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Bell, Search, ChevronRight, Smartphone, Layers, Plane, Headphones, Users, Star, Gift, Ticket, Settings, RefreshCw, Receipt, ShoppingBag, Sparkles, Tag, Percent, MessageCircle, ScanBarcode, Wifi } from 'lucide-react';
+import { Bell, Search, ChevronRight, Smartphone, Layers, Plane, Headphones, Users, Star, Gift, Ticket, Settings, RefreshCw, Receipt, ShoppingBag, Sparkles, Tag, Percent, MessageCircle, ScanBarcode, Wifi, Mic } from 'lucide-react';
 import { Button } from '../components/tds';
 import BrandLogo from '../components/ui/BrandLogo';
 import ChatOverlay from '../components/features/ChatOverlay';
@@ -24,35 +24,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
     return (
         <div className="liquid-background min-h-screen pb-24">
-            <div className="space-y-4 px-5 py-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto transition-all duration-300">
-                {/* Header with Settings Button */}
-                <header className="flex justify-between items-center pt-2 h-12">
+            {/* Hero Banner Area - Full Bleed */}
+            <div className="relative -mt-2">
+                <BannerCarousel />
+                {/* Header Overlay on Banner */}
+                <header className="absolute top-0 left-0 right-0 flex justify-between items-center pt-4 px-5 h-14 z-30">
                     <div className="md:hidden">
-                        <BrandLogo size="medium" />
+                        <BrandLogo size="medium" variant="white" />
                     </div>
                     <div className="flex items-center gap-1">
                         <button
                             onClick={() => setIsBarcodeExpanded(!isBarcodeExpanded)}
-                            className={`p-2 rounded-full transition-colors ${isBarcodeExpanded ? 'bg-white/50 text-gray-900' : 'hover:bg-white/30 text-gray-600'}`}
+                            className={`p-2 rounded-full transition-colors ${isBarcodeExpanded ? 'bg-white/30 text-white' : 'hover:bg-white/20 text-white/90'}`}
                         >
                             <ScanBarcode className="w-5 h-5" />
                         </button>
                         <button
                             onClick={() => onNavigate('search')}
-                            className="p-2 hover:bg-white/30 rounded-full transition-colors"
+                            className="p-2 hover:bg-white/20 rounded-full transition-colors"
                         >
-                            <Search className="w-5 h-5 text-gray-600" />
+                            <Search className="w-5 h-5 text-white/90" />
                         </button>
                         <button
                             onClick={() => onNavigate('notifications')}
-                            className="relative p-2 hover:bg-white/30 rounded-full transition-colors"
+                            className="relative p-2 hover:bg-white/20 rounded-full transition-colors"
                         >
-                            <Bell className="w-5 h-5 text-gray-600" />
+                            <Bell className="w-5 h-5 text-white/90" />
                             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full shadow-sm" />
                         </button>
                     </div>
                 </header>
+            </div>
 
+            <div className="space-y-4 px-5 pt-4 pb-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto transition-all duration-300">
                 {/* Inline Barcode Expansion */}
                 <BarcodeExpansion isOpen={isBarcodeExpanded} onClose={() => setIsBarcodeExpanded(false)} />
 
@@ -61,21 +65,31 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
                 {/* AI Concierge Banner */}
                 <motion.div
-                    className="glass-panel p-5 flex items-center justify-between cursor-pointer group !border-blue-600 !border-2 !shadow-[0_0_20px_rgba(59,130,246,0.4)]"
+                    className="glass-panel p-3 flex items-center justify-between cursor-pointer group !border-blue-600 !border-2 !shadow-[0_0_20px_rgba(59,130,246,0.4)]"
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowChat(true)}
                 >
-                    <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 flex items-center justify-center">
-                            <MessageCircle className="w-6 h-6 text-blue-500" />
+                    <div className="flex items-center space-x-3">
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 flex items-center justify-center">
+                            <MessageCircle className="w-5 h-5 text-blue-500" />
                         </div>
                         <div>
-                            <p className="text-base font-bold text-gray-900">무엇이든 물어보세요</p>
-                            <p className="text-sm text-gray-500 mt-0.5">AI 컨시어지가 도와드려요</p>
+                            <p className="text-sm font-bold text-gray-900">무엇이든 물어보세요</p>
+                            <p className="text-xs text-gray-500 mt-0.5">AI 컨시어지가 도와드려요</p>
                         </div>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                    <div className="p-2 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors">
+                        <Mic className="w-5 h-5 text-blue-500" />
+                    </div>
                 </motion.div>
+
+                {/* Quick Menu */}
+                <section className="grid grid-cols-4 gap-2">
+                    <QuickMenuItem icon={<Smartphone className="w-6 h-6" />} label="휴대폰" onClick={() => onNavigate('shop-phone')} />
+                    <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
+                    <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
+                    <QuickMenuItem icon={<Headphones className="w-6 h-6" />} label="고객센터" onClick={() => onNavigate('/support/faq')} />
+                </section>
 
                 {/* Mode-based Content */}
                 {homeMode === 'manage' && <ManageSection onNavigate={onNavigate} />}
@@ -114,11 +128,9 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
     }, []);
 
     return (
-        <div className="flex flex-col xl:grid xl:grid-cols-12 xl:gap-6 space-y-4 xl:space-y-0">
+        <div className="flex flex-col gap-4 xl:grid xl:grid-cols-12 xl:gap-6">
             {/* Left Column: Banner & Content */}
             <div className="xl:col-span-8 space-y-4">
-                {/* Banner Area */}
-                <BannerCarousel />
 
                 {/* Shop Highlights */}
                 <section className="glass-panel p-5 space-y-4">
@@ -142,7 +154,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
-                                className="relative h-72 rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
+                                className="relative h-[200px] rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => onNavigate('/shop/recommended')}
                             >
@@ -318,13 +330,169 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     </div>
                 </section>
 
-                {/* Quick Menu (Moved from Home) */}
-                <section className="grid grid-cols-4 gap-2">
-                    <QuickMenuItem icon={<Smartphone className="w-6 h-6" />} label="휴대폰" onClick={() => onNavigate('shop-phone')} />
-                    <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
-                    <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
-                    <QuickMenuItem icon={<Headphones className="w-6 h-6" />} label="고객센터" onClick={() => onNavigate('/support/faq')} />
+                {/* 이벤트 카드 */}
+                <section className="glass-panel p-5 space-y-4">
+                    <div className="flex justify-between items-center">
+                        <span className="text-base font-bold text-gray-900">이벤트</span>
+                        <Button
+                            size="small"
+                            variant="weak"
+                            onClick={() => onNavigate('/benefits/events')}
+                            className="bg-white/50 hover:bg-white/80 border-0"
+                        >
+                            전체보기
+                        </Button>
+                    </div>
+                    <div className="space-y-3">
+                        <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-4 border border-pink-100/50 cursor-pointer hover:shadow-md transition-all"
+                            onClick={() => onNavigate('/benefits/events')}>
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center shadow-md">
+                                    <Ticket className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-gray-900">2월 특별 이벤트</p>
+                                    <p className="text-xs text-gray-500">참여하고 경품 받기</p>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <button onClick={(e) => { e.stopPropagation(); onNavigate('/benefits/events'); }} className="w-full bg-white/60 rounded-lg p-3 flex justify-between items-center hover:bg-white/80 transition-colors">
+                                    <span className="text-sm text-gray-700">🎁 Galaxy S24 증정 이벤트</span>
+                                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                                </button>
+                                <button onClick={(e) => { e.stopPropagation(); onNavigate('/benefits/events'); }} className="w-full bg-white/60 rounded-lg p-3 flex justify-between items-center hover:bg-white/80 transition-colors">
+                                    <span className="text-sm text-gray-700">🎉 T멤버십 더블 적립</span>
+                                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </section>
+
+                {/* 로밍 카드 */}
+                <section className="glass-panel p-5 space-y-4">
+                    <div className="flex justify-between items-center">
+                        <span className="text-base font-bold text-gray-900">로밍</span>
+                        <Button
+                            size="small"
+                            variant="weak"
+                            onClick={() => onNavigate('/subscription/roaming')}
+                            className="bg-white/50 hover:bg-white/80 border-0"
+                        >
+                            더보기
+                        </Button>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-md">
+                            <Plane className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-base font-bold text-gray-900">해외에서도 편하게</p>
+                            <p className="text-sm text-gray-600">나에게 맞는 로밍 상품 찾기</p>
+                        </div>
+                    </div>
+                    <div className="space-y-2">
+                        <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm text-gray-700">🌏 baro 로밍</span>
+                                <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-600 rounded-full font-medium">인기</span>
+                            </div>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
+                            <span className="text-sm text-gray-700">✈️ T 로밍 onepass</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
+                            <span className="text-sm text-gray-700">📱 로밍 요금 안심 설정</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                    </div>
+                </section>
+
+                {/* 구독 카드 */}
+                <section className="glass-panel p-5 space-y-4">
+                    <div className="flex justify-between items-center">
+                        <span className="text-base font-bold text-gray-900">구독</span>
+                        <Button
+                            size="small"
+                            variant="weak"
+                            onClick={() => onNavigate('shop-subscription')}
+                            className="bg-white/50 hover:bg-white/80 border-0"
+                        >
+                            전체보기
+                        </Button>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-md">
+                            <Layers className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-base font-bold text-gray-900">T 우주 패스</p>
+                            <p className="text-sm text-gray-600">하나로 누리는 구독 혜택</p>
+                        </div>
+                    </div>
+                    <div className="space-y-2">
+                        <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm text-gray-700">🎬 T 우주 패스 life</span>
+                                <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-600 rounded-full font-medium">추천</span>
+                            </div>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
+                            <span className="text-sm text-gray-700">🎵 FLO 앤 데이터</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
+                            <span className="text-sm text-gray-700">📺 Wavve 앤 데이터</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                    </div>
+                </section>
+
+                {/* 이동전화 문제 해결 카드 */}
+                <section className="glass-panel p-5 space-y-4">
+                    <div className="flex justify-between items-center">
+                        <span className="text-base font-bold text-gray-900">이동전화 도움</span>
+                        <Button
+                            size="small"
+                            variant="weak"
+                            onClick={() => onNavigate('/support/faq')}
+                            className="bg-white/50 hover:bg-white/80 border-0"
+                        >
+                            더보기
+                        </Button>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-md">
+                            <Headphones className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-base font-bold text-gray-900">빠르게 문제 해결</p>
+                            <p className="text-sm text-gray-600">자주 묻는 질문과 상담</p>
+                        </div>
+                    </div>
+                    <div className="space-y-2">
+                        <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                            <span className="text-sm text-gray-700">📶 통화 품질 / 데이터 문제</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                            <span className="text-sm text-gray-700">🔧 기기 설정 / 초기화 가이드</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                            <span className="text-sm text-gray-700">💳 요금·청구 관련 문의</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                            <span className="text-sm text-gray-700">💬 1:1 상담 연결</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                    </div>
+                </section>
+
             </div>
         </div>
     );

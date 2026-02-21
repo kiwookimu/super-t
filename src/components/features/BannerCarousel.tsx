@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Play, Pause } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface BannerItem {
@@ -125,9 +125,9 @@ const BannerCarousel: React.FC = () => {
     };
 
     return (
-        <section className="glass-panel p-0 overflow-hidden relative min-h-[450px] flex flex-col cursor-pointer group transition-all hover:shadow-lg">
+        <section className="p-0 overflow-hidden relative min-h-[500px] flex flex-col cursor-pointer group transition-all">
             {/* Main Content Area */}
-            <div className="relative flex-1 flex items-center justify-center overflow-hidden rounded-t-[1.5rem] isolate transform-gpu">
+            <div className="relative flex-1 flex items-center justify-center overflow-hidden isolate transform-gpu">
                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                     <motion.div
                         key={currentBanner.id}
@@ -144,7 +144,7 @@ const BannerCarousel: React.FC = () => {
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={1}
                         onDragEnd={handleDragEnd}
-                        className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden cursor-grab active:cursor-grabbing"
+                        className="absolute inset-0 overflow-hidden cursor-grab active:cursor-grabbing"
                     >
                         {/* Background Gradient */}
                         <div className={`absolute inset-0 bg-gradient-to-r ${currentBanner.gradient}`} />
@@ -172,8 +172,8 @@ const BannerCarousel: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* Controls Layer (Absolute) */}
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-20">
+                {/* Controls Layer (Bottom) */}
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
                     {/* Page Indicator */}
                     <div className="bg-black/30 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono text-white/90 border border-white/10">
                         {currentIndex + 1} / {BANNERS.length}
@@ -188,15 +188,6 @@ const BannerCarousel: React.FC = () => {
                     </button>
                 </div>
             </div>
-
-            {/* Footer Area */}
-            <motion.div
-                className="px-5 py-4 flex justify-between items-center transition-colors duration-500"
-                style={{ backgroundColor: currentBanner.footerColor }}
-            >
-                <span className="text-white font-medium">더 알아보기</span>
-                <ChevronRight className="w-5 h-5 text-white" />
-            </motion.div>
         </section>
     );
 };

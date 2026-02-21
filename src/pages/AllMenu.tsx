@@ -47,7 +47,7 @@ const AllMenu: React.FC<AllMenuProps> = ({ onNavigate }) => {
                 </div>
             </header>
 
-            <div className="flex flex-col xl:grid xl:grid-cols-12 xl:gap-8">
+            <div className="flex flex-col gap-4 xl:grid xl:grid-cols-12 xl:gap-8">
                 {/* Right Column: Profile & Utilities (Sidebar on Desktop, Top on Mobile) */}
                 <div className="xl:col-span-4 space-y-4 order-first xl:order-last">
                     {/* User Profile Card */}
@@ -69,7 +69,7 @@ const AllMenu: React.FC<AllMenuProps> = ({ onNavigate }) => {
                     </motion.div>
 
                     {/* Quick Links */}
-                    <div className="grid grid-cols-4 md:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-4 md:grid-cols-2 gap-2 bg-white/60 rounded-2xl p-2">
                         <QuickLink icon={<FileText className="w-5 h-5" />} label="청구서" onClick={() => handleNavigate('/payment/bill')} />
                         <QuickLink icon={<Gift className="w-5 h-5" />} label="쿠폰함" onClick={() => handleNavigate('/benefits/coupons')} />
                         <QuickLink icon={<HelpCircle className="w-5 h-5" />} label="1:1문의" onClick={() => handleNavigate('/support/inquiry')} />
@@ -89,7 +89,7 @@ const AllMenu: React.FC<AllMenuProps> = ({ onNavigate }) => {
                 </div>
 
                 {/* Left Column: Menu Sections */}
-                <div className="xl:col-span-8 space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
+                <div className="xl:col-span-8 space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
                     {Object.values(MENU_STRUCTURE).map((section) => (
                         <MenuSection
                             key={section.id}
