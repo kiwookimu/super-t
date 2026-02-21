@@ -66,7 +66,7 @@ const BannerCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [direction, setDirection] = useState(0);
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const nextSlide = () => {
         setDirection(1);
@@ -83,7 +83,7 @@ const BannerCarousel: React.FC = () => {
         setIsPlaying(!isPlaying);
     };
 
-    const handleDragEnd = (event: any, info: any) => {
+    const handleDragEnd = (_event: any, info: any) => {
         const threshold = 50;
         if (info.offset.x < -threshold) {
             nextSlide();

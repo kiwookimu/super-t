@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    ChevronLeft, X, Sparkles, Image, FileText,
+    ChevronLeft, X, Sparkles,
     Plus, Mic, MicOff, Send, Check, Copy,
     RefreshCw, ThumbsUp, ThumbsDown
 } from 'lucide-react';
@@ -154,7 +154,7 @@ const ChatOverlay: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
     // ... (rest of the file)
 
-    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const _handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
             const isImage = file.type.startsWith('image/');

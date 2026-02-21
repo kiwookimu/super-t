@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// framer-motion removed - not used in Search
 import { ArrowLeft, Search as SearchIcon, X, TrendingUp, ChevronRight, Smartphone, FileText, Settings, Gift, CreditCard, Box, Zap } from 'lucide-react';
 
 interface SearchProps {
