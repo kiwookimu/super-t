@@ -65,7 +65,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
                 {/* AI Concierge Banner */}
                 <motion.div
-                    className="glass-panel p-3 flex items-center justify-between cursor-pointer group !border-blue-600 !border-2 !shadow-[0_0_20px_rgba(59,130,246,0.4)]"
+                    className="glass-panel p-3 flex items-center justify-between cursor-pointer group !border-blue-600 !border-2 !shadow-[0_0_20px_rgba(59,130,246,0.4)] !rounded-full"
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowChat(true)}
                 >
@@ -75,7 +75,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
                         </div>
                         <div>
                             <p className="text-sm font-bold text-gray-900">무엇이든 물어보세요</p>
-                            <p className="text-xs text-gray-500 mt-0.5">AI 컨시어지가 도와드려요</p>
+                            <p className="text-xs text-gray-500 mt-0.5">T AI가 도와드려요</p>
                         </div>
                     </div>
                     <div className="p-2 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors">
@@ -84,11 +84,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
                 </motion.div>
 
                 {/* Quick Menu */}
-                <section className="grid grid-cols-4 gap-2">
-                    <QuickMenuItem icon={<Smartphone className="w-6 h-6" />} label="휴대폰" onClick={() => onNavigate('shop-phone')} />
-                    <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
-                    <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
-                    <QuickMenuItem icon={<Headphones className="w-6 h-6" />} label="고객센터" onClick={() => onNavigate('/support/faq')} />
+                <section className="overflow-x-auto -mx-5 px-5 scrollbar-hide">
+                    <div className="flex gap-2 min-w-max">
+                        <QuickMenuItem icon={<Smartphone className="w-6 h-6" />} label="휴대폰" onClick={() => onNavigate('shop-phone')} />
+                        <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
+                        <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
+                        <QuickMenuItem icon={<Headphones className="w-6 h-6" />} label="고객센터" onClick={() => onNavigate('/support/faq')} />
+                        <QuickMenuItem icon={<Tag className="w-6 h-6" />} label="요금제" onClick={() => onNavigate('/plans')} />
+                        <QuickMenuItem icon={<Wifi className="w-6 h-6" />} label="인터넷" onClick={() => onNavigate('/internet')} />
+                        <QuickMenuItem icon={<Sparkles className="w-6 h-6" />} label="부가서비스" onClick={() => onNavigate('/add-on')} />
+                        <QuickMenuItem icon={<Ticket className="w-6 h-6" />} label="이벤트" onClick={() => onNavigate('/events')} />
+                    </div>
                 </section>
 
                 {/* Mode-based Content */}
@@ -307,14 +313,14 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         <button onClick={() => onNavigate('/apple-hub')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
                             <div className="flex items-center gap-4">
                                 <Smartphone className="w-6 h-6 text-blue-500" />
-                                <span className="text-xs text-gray-700 font-medium">기기 할부 정보</span>
+                                <span className="text-sm text-gray-700 font-medium">기기 할부 정보</span>
                             </div>
                             <ChevronRight className="w-5 h-5 text-gray-400" />
                         </button>
                         <button onClick={() => onNavigate('/my/loan')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
                             <div className="flex items-center gap-4">
                                 <Receipt className="w-6 h-6 text-blue-500" />
-                                <span className="text-xs text-gray-700 font-medium">실시간 이용 요금</span>
+                                <span className="text-sm text-gray-700 font-medium">실시간 이용 요금</span>
                             </div>
                             <ChevronRight className="w-5 h-5 text-gray-400" />
                         </button>
@@ -323,7 +329,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                                 <div className="w-6 h-6 flex items-center justify-center bg-blue-500 rounded-full text-white">
                                     <Percent className="w-3.5 h-3.5 font-bold" />
                                 </div>
-                                <span className="text-xs text-gray-700 font-medium">할인·적립 쿠폰</span>
+                                <span className="text-sm text-gray-700 font-medium">할인·적립 쿠폰</span>
                             </div>
                             <ChevronRight className="w-5 h-5 text-gray-400" />
                         </button>
@@ -602,7 +608,8 @@ const QuickAction = ({ icon, label, onClick }: { icon: React.ReactNode; label: s
 
 const QuickMenuItem = ({ icon, label, onClick }: { icon: React.ReactNode; label: string; onClick?: () => void }) => (
     <div
-        className="glass-panel p-4 flex flex-col items-center justify-center space-y-2 cursor-pointer active:scale-95 transition-transform"
+        className="glass-panel p-4 flex flex-col items-center justify-center space-y-2 cursor-pointer active:scale-95 transition-transform min-w-[80px]"
+        style={{ background: 'rgba(255, 255, 255, 0.95)' }}
         onClick={onClick}
     >
         <span className="text-gray-600">{icon}</span>
