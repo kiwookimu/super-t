@@ -154,17 +154,6 @@ const ChatOverlay: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
     // ... (rest of the file)
 
-    const _handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const isImage = file.type.startsWith('image/');
-            setAttachedFile({
-                type: isImage ? 'image' : 'file',
-                name: file.name
-            });
-        }
-    };
-
     const toggleRecording = () => {
         if (isRecording) {
             // Stop recording - simulate voice input
