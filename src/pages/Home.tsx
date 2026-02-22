@@ -56,7 +56,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
             <div
                 className="w-full max-w-md md:max-w-full xl:max-w-7xl mx-auto px-5 relative z-40 transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
                 style={{
-                    paddingTop: isBarcodeExpanded ? '56px' : '0px',
+                    paddingTop: isBarcodeExpanded ? '68px' : '0px',
                     paddingBottom: isBarcodeExpanded ? '20px' : '0px'
                 }}
             >
