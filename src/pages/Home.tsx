@@ -23,42 +23,46 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
     const [isBarcodeExpanded, setIsBarcodeExpanded] = useState(false);
 
     return (
-        <div className="liquid-background min-h-screen pb-12">
-            {/* Moved Barcode Expansion to top of page */}
-            <div className="px-5 pt-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto relative z-40">
+        <div className="liquid-background min-h-screen pb-12 relative">
+            {/* Header Overlay - Always fixed at the top */}
+            <header className="absolute top-0 left-0 right-0 flex justify-between items-center pt-4 px-5 h-14 z-50">
+                <div className="md:hidden">
+                    <BrandLogo size="medium" variant={isBarcodeExpanded ? 'default' : 'white'} />
+                </div>
+                <div className="flex items-center gap-1">
+                    <button
+                        onClick={() => setIsBarcodeExpanded(!isBarcodeExpanded)}
+                        className={`p-2 rounded-full transition-colors ${isBarcodeExpanded ? 'bg-black/5 text-gray-900 hover:bg-black/10' : 'text-white/90 hover:bg-white/20'}`}
+                    >
+                        <ScanBarcode className="w-5 h-5" />
+                    </button>
+                    <button
+                        onClick={() => onNavigate('search')}
+                        className={`p-2 hover:bg-white/20 rounded-full transition-colors ${isBarcodeExpanded ? 'text-gray-900 hover:bg-black/5' : 'text-white/90'}`}
+                    >
+                        <Search className="w-5 h-5" />
+                    </button>
+                    <button
+                        onClick={() => onNavigate('notifications')}
+                        className={`relative p-2 hover:bg-white/20 rounded-full transition-colors ${isBarcodeExpanded ? 'text-gray-900 hover:bg-black/5' : 'text-white/90'}`}
+                    >
+                        <Bell className="w-5 h-5" />
+                        <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full shadow-sm" />
+                    </button>
+                </div>
+            </header>
+
+            {/* Container for Barcode - pushes down banner when open */}
+            <div
+                className="w-full max-w-md md:max-w-full xl:max-w-7xl mx-auto px-5 relative z-40 transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
+                style={{ paddingTop: isBarcodeExpanded ? '56px' : '0px' }}
+            >
                 <BarcodeExpansion isOpen={isBarcodeExpanded} onClose={() => setIsBarcodeExpanded(false)} />
             </div>
 
             {/* Hero Banner Area - Full Bleed */}
-            <div className="relative -mt-2">
+            <div className="relative -mt-2 transition-transform duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] z-30">
                 <BannerCarousel />
-                {/* Header Overlay on Banner */}
-                <header className="absolute top-0 left-0 right-0 flex justify-between items-center pt-4 px-5 h-14 z-30">
-                    <div className="md:hidden">
-                        <BrandLogo size="medium" variant="white" />
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <button
-                            onClick={() => setIsBarcodeExpanded(!isBarcodeExpanded)}
-                            className={`p-2 rounded-full transition-colors ${isBarcodeExpanded ? 'bg-white/30 text-white' : 'hover:bg-white/20 text-white/90'}`}
-                        >
-                            <ScanBarcode className="w-5 h-5" />
-                        </button>
-                        <button
-                            onClick={() => onNavigate('search')}
-                            className="p-2 hover:bg-white/20 rounded-full transition-colors"
-                        >
-                            <Search className="w-5 h-5 text-white/90" />
-                        </button>
-                        <button
-                            onClick={() => onNavigate('notifications')}
-                            className="relative p-2 hover:bg-white/20 rounded-full transition-colors"
-                        >
-                            <Bell className="w-5 h-5 text-white/90" />
-                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full shadow-sm" />
-                        </button>
-                    </div>
-                </header>
             </div>
 
             <div className="space-y-4 px-5 pt-4 pb-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto transition-all duration-300">
