@@ -72,6 +72,11 @@ function App() {
     } else {
       setShopCategory(undefined);
       setCurrentPage(page);
+
+      // Auto-sync active tab for root pages
+      if (['home', 'all-menu', 'benefits', 'shop', 'my'].includes(page)) {
+        setActiveTab(page === 'all-menu' ? 'all' : page);
+      }
     }
     window.scrollTo(0, 0);
   };
@@ -176,13 +181,7 @@ function App() {
           {currentPage === 'notifications' && (
             <Notifications
               onBack={() => handleNavigate('home')}
-              onNavigate={(page) => {
-                handleNavigate(page);
-                // Also update active tab if needed
-                if (['benefits', 'shop', 'my'].includes(page)) {
-                  setActiveTab(page);
-                }
-              }}
+              onNavigate={handleNavigate}
             />
           )}
           {/* Menu Detail Pages */}
