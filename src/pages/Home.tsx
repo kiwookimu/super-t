@@ -285,7 +285,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             {/* Row 2: 이동전화 문제 해결 카드 */}
             <section className="glass-panel p-5 space-y-4">
                 <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">이동전화 도움</span>
+                    <span className="text-base font-bold text-gray-900">이런 도움이 필요 하신가요?</span>
                     <Button
                         size="small"
                         variant="weak"
