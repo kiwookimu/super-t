@@ -25,15 +25,6 @@ interface Coupon {
     isHot?: boolean;
 }
 
-interface Event {
-    id: string;
-    title: string;
-    description: string;
-    period: string;
-    tag: string;
-    imageColor: string;
-}
-
 interface BannerItem {
     id: string;
     tag: string;
@@ -68,26 +59,6 @@ const Benefits: React.FC<BenefitsProps> = () => {
         { id: '3', brand: '배달의민족', title: '첫 주문 3,000원 할인', discount: '3,000원', expiry: '2월 20일', category: 'food' },
         { id: '4', brand: '멜론', title: '이용권 1개월 무료', discount: '무료', expiry: '3월 31일', category: 'music', isNew: true },
         { id: '5', brand: 'GS25', title: '5,000원 이상 10% 할인', discount: '10%', expiry: '2월 25일', category: 'convenience' },
-    ];
-
-    // Mock events data
-    const events: Event[] = [
-        {
-            id: '1',
-            title: '신규 가입 웰컴 이벤트',
-            description: '첫 달 요금 50% 할인',
-            period: '~ 2월 28일',
-            tag: 'WELCOME',
-            imageColor: 'from-blue-400 to-indigo-500'
-        },
-        {
-            id: '2',
-            title: '친구 초대 이벤트',
-            description: '1인당 10,000P 적립',
-            period: '상시',
-            tag: 'INVITE',
-            imageColor: 'from-blue-400 to-purple-500'
-        },
     ];
 
     const categoryIcons: Record<string, React.ReactNode> = {
@@ -378,33 +349,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
 
 
 
-                    {/* Events Section - 진행 중인 이벤트 */}
-                    <section className="space-y-3">
-                        <div className="flex justify-between items-center">
-                            <h2 className="text-base font-bold text-gray-900">진행 중인 이벤트</h2>
-                            <button className="text-sm text-gray-400">전체보기</button>
-                        </div>
-                        <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-1 px-1 md:grid md:grid-cols-2 md:gap-4 md:mx-0 md:px-0 md:overflow-visible">
-                            {events.map((event) => (
-                                <motion.div
-                                    key={event.id}
-                                    className={`flex-shrink-0 w-64 md:w-auto rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br ${event.imageColor}`}
-                                    whileTap={{ scale: 0.98 }}
-                                >
-                                    <div className="p-4 text-white h-full flex flex-col">
-                                        <span className="inline-block px-2 py-0.5 bg-white/20 rounded text-[10px] font-bold mb-2 w-fit">
-                                            {event.tag}
-                                        </span>
-                                        <h3 className="font-bold text-lg">{event.title}</h3>
-                                        <p className="text-sm opacity-80 mt-1 flex-1">{event.description}</p>
-                                        <p className="text-xs opacity-60 mt-3 flex items-center gap-1">
-                                            <Clock className="w-3 h-3" /> {event.period}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </section>
+
 
                     {/* Category Tabs */}
                     <div className="flex gap-2 overflow-x-auto no-scrollbar md:flex-wrap">
