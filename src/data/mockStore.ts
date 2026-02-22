@@ -29,7 +29,7 @@ export const ALL_PLANS: Record<string, Plan> = {
         data: '50GB',
         voice: '무제한',
         sms: '무제한',
-        features: ['넷플릭스 베이식', '5G 속도'],
+        features: ['넷플릭스 베이직', '5G 속도'],
         renewalDate: '2026.03.01',
     },
     'premium': {
@@ -39,7 +39,7 @@ export const ALL_PLANS: Record<string, Plan> = {
         data: '무제한',
         voice: '무제한',
         sms: '무제한',
-        features: ['넷플릭스 베이식', '유튜브 프리미엄', 'T 멤버십 VIP'],
+        features: ['넷플릭스 베이직', '유튜브 프리미엄', 'T 멤버십 VIP'],
         renewalDate: '2026.03.01',
     },
     'premium-plus': {

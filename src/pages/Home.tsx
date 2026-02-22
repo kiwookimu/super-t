@@ -280,7 +280,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                             </button>
                         </div>
                         <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center">
-                            <span className="text-sm text-gray-700">넷플릭스 베이식</span>
+                            <span className="text-sm text-gray-700">넷플릭스 베이직</span>
                             <button onClick={() => onNavigate('/benefits/netflix')} className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-1">
                                 이용하기
                                 <ChevronRight className="w-4 h-4 text-gray-400" />
