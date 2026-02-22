@@ -12,7 +12,7 @@ interface BenefitsProps {
     onNavigate?: (page: string) => void;
 }
 
-type BenefitCategory = 'all' | 'coupon' | 'membership' | 'event' | 'partner';
+type BenefitCategory = 'all' | 'discount' | 'coupon' | 'partner';
 
 interface Coupon {
     id: string;
@@ -46,9 +46,8 @@ const Benefits: React.FC<BenefitsProps> = () => {
 
     const categories: { id: BenefitCategory; label: string }[] = [
         { id: 'all', label: '전체' },
+        { id: 'discount', label: '할인' },
         { id: 'coupon', label: '쿠폰' },
-        { id: 'membership', label: '멤버십' },
-        { id: 'event', label: '이벤트' },
         { id: 'partner', label: '제휴혜택' },
     ];
 
@@ -381,7 +380,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
 
                     {/* Coupons Section */}
                     {
-                        (activeCategory === 'all' || activeCategory === 'coupon') && (
+                        (activeCategory === 'all' || activeCategory === 'coupon' || activeCategory === 'discount') && (
                             <section className="space-y-3">
                                 <div className="space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
                                     {coupons.map((coupon) => (
