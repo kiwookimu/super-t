@@ -158,7 +158,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     <Button
                         size="small"
                         variant="weak"
-                        onClick={() => onNavigate('/subscription/plan/change')}
+                        onClick={() => onNavigate('my')}
                         className="bg-white/50 hover:bg-white/80 border-0"
                     >
                         더보기
