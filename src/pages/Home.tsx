@@ -345,12 +345,19 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         </div>
                         <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
                     </button>
-                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group lg:rounded-r-xl">
+                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group">
                         <div className="flex items-center gap-4 lg:flex-col lg:gap-1.5 text-center">
                             <div className="w-6 h-6 flex items-center justify-center bg-blue-500 rounded-full text-white">
                                 <Percent className="w-3.5 h-3.5 font-bold" />
                             </div>
                             <span className="text-sm lg:text-xs text-gray-700 font-medium whitespace-nowrap">할인·적립 쿠폰</span>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
+                    </button>
+                    <button onClick={() => onNavigate('/payment/history')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group lg:rounded-r-xl">
+                        <div className="flex items-center gap-4 lg:flex-col lg:gap-1.5 text-center">
+                            <ShoppingBag className="w-6 h-6 text-blue-500" />
+                            <span className="text-sm lg:text-xs text-gray-700 font-medium whitespace-nowrap">휴대폰 결제 내역</span>
                         </div>
                         <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
                     </button>
