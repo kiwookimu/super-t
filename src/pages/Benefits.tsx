@@ -352,7 +352,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
 
 
                     {/* Events Section Title - 진행 중인 이벤트 */}
-                    <section className="space-y-3">
+                    <section className="space-y-3 mt-8">
                         <div className="flex justify-between items-center px-1 md:px-0">
                             <h2 className="text-base font-bold text-gray-900">진행 중인 이벤트</h2>
                             <button className="text-sm text-gray-400">전체보기</button>
