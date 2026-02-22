@@ -9,6 +9,7 @@ import BannerCarousel from '../components/features/BannerCarousel';
 import BarcodeExpansion from '../components/features/BarcodeExpansion';
 import type { HomeMode } from './HomeModeSelect';
 import { mockStore } from '../data/mockStore';
+import { useShake } from '../hooks/useShake';
 
 interface HomeProps {
     onNavigate: (page: string) => void;
@@ -21,6 +22,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
     const [showChat, setShowChat] = useState(false);
     const [showOnboarding, setShowOnboarding] = useState(true);
     const [isBarcodeExpanded, setIsBarcodeExpanded] = useState(false);
+
+    useShake(() => {
+        setIsBarcodeExpanded(prev => !prev);
+    });
 
     return (
         <div className="liquid-background min-h-screen pb-12 relative">
