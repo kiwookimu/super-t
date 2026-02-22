@@ -322,48 +322,6 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             </section>
 
 
-            {/* Row 3: 로밍 카드 */}
-
-            <section className="glass-panel p-5 space-y-4">
-                <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">로밍</span>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => onNavigate('/subscription/roaming')}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        더보기
-                    </Button>
-                </div>
-                <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-md">
-                        <Plane className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                        <p className="text-base font-bold text-gray-900">해외에서도 편하게</p>
-                        <p className="text-sm text-gray-600">나에게 맞는 로밍 상품 찾기</p>
-                    </div>
-                </div>
-                <div className="space-y-2">
-                    <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center gap-2">
-                            <span className="text-sm text-gray-700">🌏 baro 로밍</span>
-                            <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-600 rounded-full font-medium">인기</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
-                        <span className="text-sm text-gray-700">✈️ T 로밍 onepass</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/subscription/roaming')} className="w-full bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center hover:bg-blue-50 transition-colors">
-                        <span className="text-sm text-gray-700">📱 로밍 요금 안심 설정</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                </div>
-            </section>
-
 
             {/* Row 3: 이동전화 문제 해결 카드 */}
 
