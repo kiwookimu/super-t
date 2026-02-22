@@ -276,13 +276,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                         </button>
                     </div>
-                    <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100/50 flex justify-between items-center">
-                        <span className="text-sm text-gray-700">넷플릭스 베이직</span>
-                        <button onClick={() => onNavigate('/benefits/netflix')} className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-1">
-                            이용하기
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                        </button>
-                    </div>
+
                 </div>
             </section>
 
@@ -487,10 +481,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         <span className="text-sm text-gray-700">💳 요금·청구 관련 문의</span>
                         <ChevronRight className="w-4 h-4 text-gray-400" />
                     </button>
-                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
-                        <span className="text-sm text-gray-700">💬 1:1 상담 연결</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
+
                 </div>
             </section>
         </div>
