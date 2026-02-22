@@ -330,29 +330,29 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     </Button>
                 </div>
 
-                <div className="divide-y divide-gray-100/50 -mx-5 pt-1">
-                    <button onClick={() => onNavigate('/apple-hub')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
+                <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-gray-100/50 -mx-5 lg:mx-0 pt-1 lg:pt-3">
+                    <button onClick={() => onNavigate('/apple-hub')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group lg:rounded-l-xl">
+                        <div className="flex items-center gap-4 lg:flex-col lg:gap-1.5 text-center">
                             <Smartphone className="w-6 h-6 text-blue-500" />
-                            <span className="text-sm text-gray-700 font-medium">기기 할부 정보</span>
+                            <span className="text-sm lg:text-xs text-gray-700 font-medium whitespace-nowrap">기기 할부 정보</span>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                        <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
                     </button>
-                    <button onClick={() => onNavigate('/my/loan')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
+                    <button onClick={() => onNavigate('/my/loan')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group">
+                        <div className="flex items-center gap-4 lg:flex-col lg:gap-1.5 text-center">
                             <Receipt className="w-6 h-6 text-blue-500" />
-                            <span className="text-sm text-gray-700 font-medium">실시간 이용 요금</span>
+                            <span className="text-sm lg:text-xs text-gray-700 font-medium whitespace-nowrap">실시간 이용 요금</span>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                        <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
                     </button>
-                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
+                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full lg:flex-1 flex items-center justify-between lg:justify-center py-2 lg:py-4 px-5 lg:px-2 hover:bg-black/5 transition-colors group lg:rounded-r-xl">
+                        <div className="flex items-center gap-4 lg:flex-col lg:gap-1.5 text-center">
                             <div className="w-6 h-6 flex items-center justify-center bg-blue-500 rounded-full text-white">
                                 <Percent className="w-3.5 h-3.5 font-bold" />
                             </div>
-                            <span className="text-sm text-gray-700 font-medium">할인·적립 쿠폰</span>
+                            <span className="text-sm lg:text-xs text-gray-700 font-medium whitespace-nowrap">할인·적립 쿠폰</span>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                        <ChevronRight className="w-5 h-5 text-gray-400 lg:hidden" />
                     </button>
                 </div>
             </section>
