@@ -279,18 +279,25 @@ const Benefits: React.FC<BenefitsProps> = () => {
                                         onToggle={() => setPaymentBarcode(!paymentBarcode)}
                                     />
                                 </div>
-
-                                {/* Coupon Link */}
-                                <div className="mt-3 flex items-center justify-between py-2.5 px-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors">
-                                    <div className="flex items-center gap-2">
-                                        <Gift className="w-4 h-4 text-rose-500" />
-                                        <span className="text-sm font-medium text-gray-700">사용 가능한 쿠폰</span>
-                                        <span className="px-1.5 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded-full">3</span>
-                                    </div>
-                                    <span className="text-gray-400 text-sm">›</span>
-                                </div>
                             </div>
                         </div>
+                    </section>
+
+                    {/* Coupon Link Card */}
+                    <section
+                        className="rounded-3xl bg-white px-5 py-4 shadow-xl shadow-gray-100 border border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-between"
+                        onClick={() => setActiveCategory('coupon')}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center">
+                                <Gift className="w-5 h-5 text-rose-500" />
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-gray-900">사용 가능한 쿠폰</h3>
+                                <p className="text-xs text-gray-500 mt-0.5"><span className="text-rose-500 font-bold">3장</span> 보관 중</p>
+                            </div>
+                        </div>
+                        <span className="text-gray-300 text-lg">›</span>
                     </section>
                 </div>
 
