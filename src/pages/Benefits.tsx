@@ -227,78 +227,80 @@ const Benefits: React.FC<BenefitsProps> = () => {
 
             <div className="flex flex-col xl:grid xl:grid-cols-12 xl:gap-6 space-y-5 md:space-y-0">
                 {/* Right Column: Membership Summary (First on mobile) */}
-                <div className="xl:col-span-4 space-y-5 order-first xl:order-last">
-                    <section className="relative overflow-hidden rounded-3xl bg-white px-6 pt-6 pb-5 shadow-xl shadow-gray-100 border border-gray-100 sticky top-4">
-                        <div className="relative z-10">
-                            <div className="mb-6 flex items-end justify-between">
-                                <div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-bold text-amber-500">VIP</span>
+                <div className="xl:col-span-4 order-first xl:order-last">
+                    <div className="sticky top-4 space-y-5 z-20">
+                        <section className="relative overflow-hidden rounded-3xl bg-white px-6 pt-6 pb-5 shadow-xl shadow-gray-100 border border-gray-100">
+                            <div className="relative z-10">
+                                <div className="mb-6 flex items-end justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-bold text-amber-500">VIP</span>
+                                        </div>
+                                        <h2 className="mt-1 text-2xl font-bold text-gray-900">김기우님</h2>
                                     </div>
-                                    <h2 className="mt-1 text-2xl font-bold text-gray-900">김기우님</h2>
+                                    <div className="text-right">
+                                        <p className="text-xs text-gray-500">연간 누적 할인</p>
+                                        <p className="mt-0.5 text-xl font-bold text-gray-900">158,000 <span className="text-sm font-normal text-gray-400">원</span></p>
+                                    </div>
                                 </div>
-                                <div className="text-right">
-                                    <p className="text-xs text-gray-500">연간 누적 할인</p>
-                                    <p className="mt-0.5 text-xl font-bold text-gray-900">158,000 <span className="text-sm font-normal text-gray-400">원</span></p>
-                                </div>
-                            </div>
 
-                            {/* Barcode Section (Bottom) */}
-                            <div className="mt-4 flex flex-col items-center">
-                                <div className="flex h-24 w-full items-center justify-center gap-[4px] rounded-2xl bg-gray-50 px-6 py-4 border border-gray-100">
-                                    {/* Barcode Pattern (Static) */}
-                                    {barcodePattern.map((width, i) => (
-                                        <div
-                                            key={i}
-                                            className={`h-full bg-gray-900`}
-                                            style={{ width: `${width === 1 ? '4px' : '10px'}` }}
+                                {/* Barcode Section (Bottom) */}
+                                <div className="mt-4 flex flex-col items-center">
+                                    <div className="flex h-24 w-full items-center justify-center gap-[4px] rounded-2xl bg-gray-50 px-6 py-4 border border-gray-100">
+                                        {/* Barcode Pattern (Static) */}
+                                        {barcodePattern.map((width, i) => (
+                                            <div
+                                                key={i}
+                                                className={`h-full bg-gray-900`}
+                                                style={{ width: `${width === 1 ? '4px' : '10px'}` }}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="mt-2 flex w-full items-center justify-between px-1">
+                                        <div className="flex items-center gap-1.5">
+                                            <Clock className="h-3.5 w-3.5 text-gray-400" />
+                                            <span className="text-xs font-medium text-gray-500">{formatTime(timeLeft)}</span>
+                                        </div>
+                                        <p className="text-sm font-bold tracking-[0.2em] text-gray-900">1234 5678 9012 3456</p>
+                                    </div>
+
+                                    {/* Divider */}
+                                    <div className="my-3 h-px w-full bg-gray-100" />
+
+                                    {/* Toggles */}
+                                    <div className="flex w-full gap-3">
+                                        <BarcodeToggle
+                                            label="매직 바코드"
+                                            isActive={magicBarcode}
+                                            onToggle={() => setMagicBarcode(!magicBarcode)}
                                         />
-                                    ))}
-                                </div>
-                                <div className="mt-2 flex w-full items-center justify-between px-1">
-                                    <div className="flex items-center gap-1.5">
-                                        <Clock className="h-3.5 w-3.5 text-gray-400" />
-                                        <span className="text-xs font-medium text-gray-500">{formatTime(timeLeft)}</span>
+                                        <BarcodeToggle
+                                            label="결제 바코드"
+                                            isActive={paymentBarcode}
+                                            onToggle={() => setPaymentBarcode(!paymentBarcode)}
+                                        />
                                     </div>
-                                    <p className="text-sm font-bold tracking-[0.2em] text-gray-900">1234 5678 9012 3456</p>
-                                </div>
-
-                                {/* Divider */}
-                                <div className="my-3 h-px w-full bg-gray-100" />
-
-                                {/* Toggles */}
-                                <div className="flex w-full gap-3">
-                                    <BarcodeToggle
-                                        label="매직 바코드"
-                                        isActive={magicBarcode}
-                                        onToggle={() => setMagicBarcode(!magicBarcode)}
-                                    />
-                                    <BarcodeToggle
-                                        label="결제 바코드"
-                                        isActive={paymentBarcode}
-                                        onToggle={() => setPaymentBarcode(!paymentBarcode)}
-                                    />
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    {/* Coupon Link Card */}
-                    <section
-                        className="rounded-3xl bg-white px-5 py-4 shadow-xl shadow-gray-100 border border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-between"
-                        onClick={() => setActiveCategory('coupon')}
-                    >
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center">
-                                <Gift className="w-5 h-5 text-rose-500" />
+                        {/* Coupon Link Card */}
+                        <section
+                            className="rounded-3xl bg-white px-5 py-4 shadow-xl shadow-gray-100 border border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-between"
+                            onClick={() => setActiveCategory('coupon')}
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center">
+                                    <Gift className="w-5 h-5 text-rose-500" />
+                                </div>
+                                <h3 className="text-sm font-bold text-gray-900">사용 가능한 쿠폰</h3>
                             </div>
-                            <h3 className="text-sm font-bold text-gray-900">사용 가능한 쿠폰</h3>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-rose-500">3개</span>
-                            <span className="text-gray-300 text-lg">›</span>
-                        </div>
-                    </section>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm font-bold text-rose-500">3개</span>
+                                <span className="text-gray-300 text-lg">›</span>
+                            </div>
+                        </section>
+                    </div>
                 </div>
 
                 {/* Left Column: Banners & Content */}
