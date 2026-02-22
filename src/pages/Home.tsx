@@ -84,8 +84,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
                 </motion.div>
 
                 {/* Quick Menu */}
-                <section className="overflow-x-auto -mx-5 px-5 scrollbar-hide">
-                    <div className="flex gap-2 min-w-max">
+                <section className="overflow-x-auto scrollbar-hide -mx-5 px-5 md:mx-0 md:px-0">
+                    <div className="flex gap-3 min-w-max md:w-full md:justify-center md:min-w-0">
                         <QuickMenuItem icon={<Smartphone className="w-6 h-6" />} label="휴대폰" onClick={() => onNavigate('shop-phone')} />
                         <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
                         <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
