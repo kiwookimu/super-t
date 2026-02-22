@@ -321,44 +321,6 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                 </div>
             </section>
 
-            {/* Row 2: 이벤트 카드 */}
-            <section className="glass-panel p-5 space-y-4">
-                <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">이벤트</span>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => onNavigate('/benefits/events')}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        전체보기
-                    </Button>
-                </div>
-                <div className="space-y-3">
-                    <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-4 border border-pink-100/50 cursor-pointer hover:shadow-md transition-all"
-                        onClick={() => onNavigate('/benefits/events')}>
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center shadow-md">
-                                <Ticket className="w-5 h-5 text-white" />
-                            </div>
-                            <div>
-                                <p className="text-sm font-bold text-gray-900">2월 특별 이벤트</p>
-                                <p className="text-xs text-gray-500">참여하고 경품 받기</p>
-                            </div>
-                        </div>
-                        <div className="space-y-2">
-                            <button onClick={(e) => { e.stopPropagation(); onNavigate('/benefits/events'); }} className="w-full bg-white/60 rounded-lg p-3 flex justify-between items-center hover:bg-white/80 transition-colors">
-                                <span className="text-sm text-gray-700">🎁 Galaxy S24 증정 이벤트</span>
-                                <ChevronRight className="w-4 h-4 text-gray-400" />
-                            </button>
-                            <button onClick={(e) => { e.stopPropagation(); onNavigate('/benefits/events'); }} className="w-full bg-white/60 rounded-lg p-3 flex justify-between items-center hover:bg-white/80 transition-colors">
-                                <span className="text-sm text-gray-700">🎉 T멤버십 더블 적립</span>
-                                <ChevronRight className="w-4 h-4 text-gray-400" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Row 3: 로밍 카드 */}
 
