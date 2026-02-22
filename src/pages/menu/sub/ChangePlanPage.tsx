@@ -191,7 +191,7 @@ const ChangePlanPage: React.FC<ChangePlanPageProps> = ({ onBack }) => {
             </main>
 
             {/* Bottom CTA */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-5 py-4 pb-8">
+            <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-gray-100 px-5 pt-4 pb-24 lg:pb-8 z-40">
                 <Button
                     size="large"
                     variant="fill"
