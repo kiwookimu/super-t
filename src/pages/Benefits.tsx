@@ -300,6 +300,20 @@ const Benefits: React.FC<BenefitsProps> = () => {
                                 <span className="text-gray-300 text-lg">›</span>
                             </div>
                         </section>
+
+                        {/* Partner Benefits - 제휴 혜택 */}
+                        <section className="space-y-3">
+                            <div className="flex justify-between items-center px-1">
+                                <h2 className="text-base font-bold text-gray-900">제휴 혜택</h2>
+                                <button className="text-sm text-gray-400">전체보기</button>
+                            </div>
+                            <div className="grid grid-cols-4 gap-3 md:gap-4">
+                                <PartnerItem icon={<Coffee className="w-6 h-6" />} label="카페" />
+                                <PartnerItem icon={<Film className="w-6 h-6" />} label="영화" />
+                                <PartnerItem icon={<Music className="w-6 h-6" />} label="음악" />
+                                <PartnerItem icon={<Utensils className="w-6 h-6" />} label="음식" />
+                            </div>
+                        </section>
                     </div>
                 </div>
 
@@ -362,19 +376,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
                         </div>
                     </div>
 
-                    {/* Partner Benefits - 제휴 혜택 */}
-                    <section className="space-y-3">
-                        <div className="flex justify-between items-center">
-                            <h2 className="text-base font-bold text-gray-900">제휴 혜택</h2>
-                            <button className="text-sm text-gray-400">전체보기</button>
-                        </div>
-                        <div className="grid grid-cols-4 gap-3 md:gap-4">
-                            <PartnerItem icon={<Coffee className="w-6 h-6" />} label="카페" />
-                            <PartnerItem icon={<Film className="w-6 h-6" />} label="영화" />
-                            <PartnerItem icon={<Music className="w-6 h-6" />} label="음악" />
-                            <PartnerItem icon={<Utensils className="w-6 h-6" />} label="음식" />
-                        </div>
-                    </section>
+
 
                     {/* Events Section - 진행 중인 이벤트 */}
                     <section className="space-y-3">
