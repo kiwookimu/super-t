@@ -175,16 +175,16 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     </div>
                 </div>
                 <div className="flex divide-x divide-gray-200/50 pt-2 border-t border-gray-200/50">
-                    <button onClick={() => onNavigate('/data/recharge')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/data/recharge')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">데이터 충전</span>
                     </button>
-                    <button onClick={() => onNavigate('/data/gift')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/data/gift')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">데이터 선물</span>
                     </button>
-                    <button onClick={() => onNavigate('/payment/bill')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/payment/bill')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">요금 조회</span>
                     </button>
-                    <button onClick={() => onNavigate('/add-on')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/add-on')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">부가서비스 조회</span>
                     </button>
                 </div>
