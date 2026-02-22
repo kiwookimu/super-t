@@ -280,7 +280,46 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                 </div>
             </section>
 
-            {/* Row 2: Frequently Visited */}
+            {/* Row 2: 이동전화 문제 해결 카드 */}
+            <section className="glass-panel p-5 space-y-4">
+                <div className="flex justify-between items-center">
+                    <span className="text-base font-bold text-gray-900">이동전화 도움</span>
+                    <Button
+                        size="small"
+                        variant="weak"
+                        onClick={() => onNavigate('/support/faq')}
+                        className="bg-white/50 hover:bg-white/80 border-0"
+                    >
+                        더보기
+                    </Button>
+                </div>
+                <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-md">
+                        <Headphones className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                        <p className="text-base font-bold text-gray-900">빠르게 문제 해결</p>
+                        <p className="text-sm text-gray-600">자주 묻는 질문과 상담</p>
+                    </div>
+                </div>
+                <div className="space-y-2">
+                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                        <span className="text-sm text-gray-700">📶 통화 품질 / 데이터 문제</span>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </button>
+                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                        <span className="text-sm text-gray-700">🔧 기기 설정 / 초기화 가이드</span>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </button>
+                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
+                        <span className="text-sm text-gray-700">💳 요금·청구 관련 문의</span>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                    </button>
+
+                </div>
+            </section>
+
+            {/* Row 3: Frequently Visited */}
 
             <section className="glass-panel p-5 space-y-2">
                 <div className="flex justify-between items-center">
@@ -323,45 +362,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             </section>
 
 
-            {/* Row 3: 이동전화 문제 해결 카드 */}
 
-            <section className="glass-panel p-5 space-y-4">
-                <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">이동전화 도움</span>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => onNavigate('/support/faq')}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        더보기
-                    </Button>
-                </div>
-                <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-md">
-                        <Headphones className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                        <p className="text-base font-bold text-gray-900">빠르게 문제 해결</p>
-                        <p className="text-sm text-gray-600">자주 묻는 질문과 상담</p>
-                    </div>
-                </div>
-                <div className="space-y-2">
-                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
-                        <span className="text-sm text-gray-700">📶 통화 품질 / 데이터 문제</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
-                        <span className="text-sm text-gray-700">🔧 기기 설정 / 초기화 가이드</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
-                        <span className="text-sm text-gray-700">💳 요금·청구 관련 문의</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-
-                </div>
-            </section>
         </div>
     );
 };
