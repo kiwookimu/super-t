@@ -12,6 +12,8 @@ interface BenefitsProps {
     onNavigate?: (page: string) => void;
 }
 
+type BenefitCategory = 'all' | 'coupon' | 'membership' | 'event' | 'partner';
+
 interface Coupon {
     id: string;
     brand: string;
@@ -49,6 +51,16 @@ const Benefits: React.FC<BenefitsProps> = () => {
     // ----------------------------------
     // State: Categories & Data
     // ----------------------------------
+    const [activeCategory, setActiveCategory] = useState<BenefitCategory>('all');
+
+    const categories: { id: BenefitCategory; label: string }[] = [
+        { id: 'all', label: '전체' },
+        { id: 'coupon', label: '쿠폰' },
+        { id: 'membership', label: '멤버십' },
+        { id: 'event', label: '이벤트' },
+        { id: 'partner', label: '제휴혜택' },
+    ];
+
     // Mock coupons data
     const coupons: Coupon[] = [
         { id: '1', brand: '스타벅스', title: '아메리카노 50% 할인', discount: '50%', expiry: '2월 28일', category: 'cafe', isHot: true },
@@ -274,6 +286,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
                     {/* Coupon Link Card */}
                     <section
                         className="rounded-3xl bg-white px-5 py-4 shadow-xl shadow-gray-100 border border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-between"
+                        onClick={() => setActiveCategory('coupon')}
                     >
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center">
@@ -389,18 +402,38 @@ const Benefits: React.FC<BenefitsProps> = () => {
                         </div>
                     </section>
 
+                    {/* Category Tabs */}
+                    <div className="flex gap-2 overflow-x-auto no-scrollbar md:flex-wrap">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat.id}
+                                onClick={() => setActiveCategory(cat.id)}
+                                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeCategory === cat.id
+                                    ? 'bg-gray-900 text-white'
+                                    : 'bg-white text-gray-600 border border-gray-200'
+                                    }`}
+                            >
+                                {cat.label}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Coupons Section */}
-                    <section className="space-y-3">
-                        <div className="space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
-                            {coupons.map((coupon) => (
-                                <CouponCard
-                                    key={coupon.id}
-                                    coupon={coupon}
-                                    icon={categoryIcons[coupon.category] || <Gift className="w-5 h-5" />}
-                                />
-                            ))}
-                        </div>
-                    </section>
+                    {
+                        (activeCategory === 'all' || activeCategory === 'coupon') && (
+                            <section className="space-y-3">
+                                <div className="space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
+                                    {coupons.map((coupon) => (
+                                        <CouponCard
+                                            key={coupon.id}
+                                            coupon={coupon}
+                                            icon={categoryIcons[coupon.category] || <Gift className="w-5 h-5" />}
+                                        />
+                                    ))}
+                                </div>
+                            </section>
+                        )
+                    }
 
 
                 </div>
