@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Bell, Search, ChevronRight, Smartphone, Layers, Plane, Headphones, Users, Star, Gift, Ticket, Settings, RefreshCw, Receipt, ShoppingBag, Sparkles, Tag, Percent, MessageCircle, ScanBarcode, Wifi, Mic } from 'lucide-react';
+import { Bell, Search, ChevronRight, Smartphone, Layers, Plane, Headphones, Users, Star, Gift, Ticket, Settings, Receipt, ShoppingBag, Sparkles, Tag, Percent, MessageCircle, ScanBarcode, Wifi, Mic, Play, Globe } from 'lucide-react';
 import { Button } from '../components/tds';
 import BrandLogo from '../components/ui/BrandLogo';
 import ChatOverlay from '../components/features/ChatOverlay';
@@ -280,10 +280,10 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     {[
                         { title: 'Galaxy S24', desc: 'AI 폰의 시작', tag: 'HOT', color: 'from-violet-500 to-purple-600', icon: Smartphone },
                         { title: 'Z Flip6', desc: '콤팩트한 혁신', tag: 'NEW', color: 'from-blue-400 to-cyan-500', icon: Smartphone },
-                        { title: 'Watch7', desc: '더 스마트하게', tag: 'SALE', color: 'from-emerald-400 to-teal-500', icon: RefreshCw },
+                        { title: 'Netflix', desc: '끝없는 즐거움', tag: '구독', color: 'from-red-500 to-rose-600', icon: Play },
                         { title: 'Buds3 Pro', desc: '압도적 사운드', tag: 'BEST', color: 'from-orange-400 to-red-500', icon: Headphones },
                         { title: 'iPhone 15 Pro', desc: '티타늄의 본성', tag: '인기', color: 'from-slate-500 to-gray-700', icon: Smartphone },
-                        { title: 'iPad Air', desc: '가벼운 파워', tag: '추천', color: 'from-sky-400 to-blue-500', icon: Smartphone },
+                        { title: 'Baro', desc: '해외 로밍 특화', tag: '추천', color: 'from-sky-400 to-blue-500', icon: Globe },
                     ].map((item, index) => (
                         <motion.div
                             key={index}
