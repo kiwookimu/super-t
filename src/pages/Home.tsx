@@ -23,7 +23,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
     const [isBarcodeExpanded, setIsBarcodeExpanded] = useState(false);
 
     return (
-        <div className="liquid-background min-h-screen pb-24">
+        <div className="liquid-background min-h-screen pb-12">
             {/* Hero Banner Area - Full Bleed */}
             <div className="relative -mt-2">
                 <BannerCarousel />
