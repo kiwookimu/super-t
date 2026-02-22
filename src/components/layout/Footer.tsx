@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
 
                         <div className="text-gray-500 text-[12px] space-y-1">
                             <p className="font-bold text-gray-600">SK텔레콤(주)</p>
-                            <p>대표이사/사장: 유영상 <span className="text-gray-300 mx-1">|</span> 사업자등록번호: 104-81-37225 <span className="text-gray-300 mx-1">|</span> 통신판매번호: 2004-서울중구-2923 <a href="#" className="underline ml-2">사업자 정보 확인</a></p>
+                            <p>대표이사/사장: 정재헌 <span className="text-gray-300 mx-1">|</span> 사업자등록번호: 104-81-37225 <span className="text-gray-300 mx-1">|</span> 통신판매번호: 2004-서울중구-2923 <a href="#" className="underline ml-2">사업자 정보 확인</a></p>
                             <p>서울특별시 중구 을지로 65(을지로2가)</p>
                             <p>전자우편주소 tworld.cs@sktelecom.com</p>
                             <p>호스팅 사업자 Amazon Web Service(AWS)</p>
