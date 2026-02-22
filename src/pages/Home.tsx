@@ -231,47 +231,6 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                 </div>
             </section>
 
-            {/* Row 1: Frequently Visited */}
-
-            <section className="glass-panel p-5 space-y-2">
-                <div className="flex justify-between items-center">
-                    <h3 className="text-base font-bold text-gray-900">자주 찾는 화면</h3>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => { }}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        편집
-                    </Button>
-                </div>
-
-                <div className="divide-y divide-gray-100/50 -mx-5 pt-1">
-                    <button onClick={() => onNavigate('/apple-hub')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
-                            <Smartphone className="w-6 h-6 text-blue-500" />
-                            <span className="text-sm text-gray-700 font-medium">기기 할부 정보</span>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/my/loan')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
-                            <Receipt className="w-6 h-6 text-blue-500" />
-                            <span className="text-sm text-gray-700 font-medium">실시간 이용 요금</span>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
-                        <div className="flex items-center gap-4">
-                            <div className="w-6 h-6 flex items-center justify-center bg-blue-500 rounded-full text-white">
-                                <Percent className="w-3.5 h-3.5 font-bold" />
-                            </div>
-                            <span className="text-sm text-gray-700 font-medium">할인·적립 쿠폰</span>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                    </button>
-                </div>
-            </section>
 
             {/* Row 2: Recommended Products (Takes 2 Columns) */}
             <section className="glass-panel p-5 space-y-4 xl:col-span-2">
@@ -321,6 +280,47 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                 </div>
             </section>
 
+            {/* Row 2: Frequently Visited */}
+
+            <section className="glass-panel p-5 space-y-2">
+                <div className="flex justify-between items-center">
+                    <h3 className="text-base font-bold text-gray-900">자주 찾는 화면</h3>
+                    <Button
+                        size="small"
+                        variant="weak"
+                        onClick={() => { }}
+                        className="bg-white/50 hover:bg-white/80 border-0"
+                    >
+                        편집
+                    </Button>
+                </div>
+
+                <div className="divide-y divide-gray-100/50 -mx-5 pt-1">
+                    <button onClick={() => onNavigate('/apple-hub')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
+                        <div className="flex items-center gap-4">
+                            <Smartphone className="w-6 h-6 text-blue-500" />
+                            <span className="text-sm text-gray-700 font-medium">기기 할부 정보</span>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                    </button>
+                    <button onClick={() => onNavigate('/my/loan')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
+                        <div className="flex items-center gap-4">
+                            <Receipt className="w-6 h-6 text-blue-500" />
+                            <span className="text-sm text-gray-700 font-medium">실시간 이용 요금</span>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                    </button>
+                    <button onClick={() => onNavigate('/benefits/coupons')} className="w-full flex items-center justify-between py-1.5 px-5 hover:bg-black/5 transition-colors group">
+                        <div className="flex items-center gap-4">
+                            <div className="w-6 h-6 flex items-center justify-center bg-blue-500 rounded-full text-white">
+                                <Percent className="w-3.5 h-3.5 font-bold" />
+                            </div>
+                            <span className="text-sm text-gray-700 font-medium">할인·적립 쿠폰</span>
+                        </div>
+                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                    </button>
+                </div>
+            </section>
 
 
             {/* Row 3: 이동전화 문제 해결 카드 */}
