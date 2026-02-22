@@ -105,9 +105,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
                         <QuickMenuItem icon={<Layers className="w-6 h-6" />} label="구독" onClick={() => onNavigate('shop-subscription')} />
                         <QuickMenuItem icon={<Plane className="w-6 h-6" />} label="로밍" onClick={() => onNavigate('/subscription/roaming')} />
                         <QuickMenuItem icon={<Headphones className="w-6 h-6" />} label="고객센터" onClick={() => onNavigate('/support/faq')} />
-                        <QuickMenuItem icon={<Tag className="w-6 h-6" />} label="요금제" onClick={() => onNavigate('/plans')} />
+                        <QuickMenuItem icon={<Tag className="w-6 h-6" />} label="요금제" onClick={() => onNavigate('/subscription/plan')} />
                         <QuickMenuItem icon={<Wifi className="w-6 h-6" />} label="인터넷" onClick={() => onNavigate('/internet')} />
-                        <QuickMenuItem icon={<Sparkles className="w-6 h-6" />} label="부가서비스" onClick={() => onNavigate('/add-on')} />
+                        <QuickMenuItem icon={<Sparkles className="w-6 h-6" />} label="부가서비스" onClick={() => onNavigate('/subscription/addons')} />
                         <QuickMenuItem icon={<Ticket className="w-6 h-6" />} label="이벤트" onClick={() => onNavigate('/events')} />
                     </div>
                 </section>
@@ -196,10 +196,10 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                     <button onClick={() => onNavigate('/data/gift')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">데이터 선물</span>
                     </button>
-                    <button onClick={() => onNavigate('/payment/bill')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/payment/bill')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">요금 조회</span>
                     </button>
-                    <button onClick={() => onNavigate('/add-on')} className="flex-1 flex items-center justify-center pt-2 pb-[6px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                    <button onClick={() => onNavigate('/subscription/addons')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                         <span className="text-xs font-semibold text-gray-600">부가서비스 조회</span>
                     </button>
                 </div>
@@ -422,7 +422,7 @@ const DiscoverSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onN
                 <div className="flex items-center gap-2">
                     <span className="text-base font-bold text-gray-900">🔥 인기 요금제 TOP 3</span>
                 </div>
-                <Button size="small" variant="weak" onClick={() => onNavigate('/plans')} className="bg-white/50 hover:bg-white/80 border-0">
+                <Button size="small" variant="weak" onClick={() => onNavigate('/subscription/plan')} className="bg-white/50 hover:bg-white/80 border-0">
                     전체보기
                 </Button>
             </div>
@@ -467,7 +467,7 @@ const DiscoverSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onN
         <section className="glass-panel p-5 space-y-4">
             <div className="flex justify-between items-center">
                 <span className="text-base font-bold text-gray-900">🎯 맞춤 부가서비스</span>
-                <Button size="small" variant="weak" onClick={() => onNavigate('/add-on')} className="bg-white/50 hover:bg-white/80 border-0">
+                <Button size="small" variant="weak" onClick={() => onNavigate('/subscription/addons')} className="bg-white/50 hover:bg-white/80 border-0">
                     전체보기
                 </Button>
             </div>
@@ -480,7 +480,7 @@ const DiscoverSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onN
                 ].map((svc, i) => (
                     <motion.button
                         key={i}
-                        onClick={() => onNavigate('/add-on')}
+                        onClick={() => onNavigate('/subscription/addons')}
                         className="w-full bg-white/50 rounded-xl p-4 border border-gray-100/50 flex items-center gap-3 hover:bg-white/80 transition-colors"
                         whileTap={{ scale: 0.98 }}
                     >

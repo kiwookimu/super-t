@@ -37,6 +37,7 @@ import {
   EventsPage,
   ShopListPage,
   DataGiftPage,
+  ComingSoonPage,
 } from './pages/menu';
 
 // Sub-Pages
@@ -139,7 +140,7 @@ function App() {
       case '/shop/new': return <ShopListPage onBack={handleBack} filter="new" />;
       case '/shop/popular': return <ShopListPage onBack={handleBack} filter="popular" />;
       case '/shop/sale': return <ShopListPage onBack={handleBack} filter="sale" />;
-      default: return null;
+      default: return <ComingSoonPage onBack={handleBack} />;
     }
   };
 

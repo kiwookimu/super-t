@@ -23,3 +23,4 @@ export { default as DataRechargePage } from './DataRechargePage';
 export { default as EventsPage } from './EventsPage';
 export { default as ShopListPage } from './ShopListPage';
 export { default as DataGiftPage } from './DataGiftPage';
+export { default as ComingSoonPage } from './ComingSoonPage';
