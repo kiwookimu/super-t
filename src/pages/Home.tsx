@@ -232,56 +232,6 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             </section>
 
 
-            {/* Row 2: Recommended Products (Takes 2 Columns) */}
-            <section className="glass-panel p-5 space-y-4 xl:col-span-2">
-                <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">추천 상품</span>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => onNavigate('shop')}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        더보기
-                    </Button>
-                </div>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                    {[
-                        { title: 'Galaxy S24', desc: 'AI 폰의 시작', tag: 'HOT', color: 'from-violet-500 to-purple-600', icon: Smartphone },
-                        { title: 'Z Flip6', desc: '콤팩트한 혁신', tag: 'NEW', color: 'from-blue-400 to-cyan-500', icon: Smartphone },
-                        { title: 'Watch7', desc: '더 스마트하게', tag: 'SALE', color: 'from-emerald-400 to-teal-500', icon: RefreshCw },
-                        { title: 'Buds3 Pro', desc: '압도적 사운드', tag: 'BEST', color: 'from-orange-400 to-red-500', icon: Headphones },
-                        { title: 'iPhone 15 Pro', desc: '티타늄의 본성', tag: '인기', color: 'from-slate-500 to-gray-700', icon: Smartphone },
-                        { title: 'iPad Air', desc: '가벼운 파워', tag: '추천', color: 'from-sky-400 to-blue-500', icon: Smartphone },
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="relative h-[200px] rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => onNavigate('/shop/recommended')}
-                        >
-                            <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                            <div className="absolute inset-0 backdrop-blur-3xl bg-white/30" />
-
-                            <div className="relative z-10 p-4 h-full flex flex-col justify-between">
-                                <div className="flex justify-between items-start">
-                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/50 text-gray-700 backdrop-blur-md`}>
-                                        {item.tag}
-                                    </span>
-                                    <div className="p-1.5 bg-white/40 rounded-lg backdrop-blur-sm">
-                                        <item.icon className="w-4 h-4 text-gray-700" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 leading-tight">{item.title}</h4>
-                                    <p className="text-xs text-gray-600 mt-0.5">{item.desc}</p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-
             {/* Row 2: 이동전화 문제 해결 카드 */}
             <section className="glass-panel p-5 space-y-4">
                 <div className="flex justify-between items-center">
@@ -320,6 +270,58 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
 
                 </div>
             </section>
+
+            {/* Row 3: Recommended Products (Takes 3 Columns) */}
+            <section className="glass-panel p-5 space-y-4 xl:col-span-3">
+                <div className="flex justify-between items-center">
+                    <span className="text-base font-bold text-gray-900">추천 상품</span>
+                    <Button
+                        size="small"
+                        variant="weak"
+                        onClick={() => onNavigate('shop')}
+                        className="bg-white/50 hover:bg-white/80 border-0"
+                    >
+                        더보기
+                    </Button>
+                </div>
+                <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4">
+                    {[
+                        { title: 'Galaxy S24', desc: 'AI 폰의 시작', tag: 'HOT', color: 'from-violet-500 to-purple-600', icon: Smartphone },
+                        { title: 'Z Flip6', desc: '콤팩트한 혁신', tag: 'NEW', color: 'from-blue-400 to-cyan-500', icon: Smartphone },
+                        { title: 'Watch7', desc: '더 스마트하게', tag: 'SALE', color: 'from-emerald-400 to-teal-500', icon: RefreshCw },
+                        { title: 'Buds3 Pro', desc: '압도적 사운드', tag: 'BEST', color: 'from-orange-400 to-red-500', icon: Headphones },
+                        { title: 'iPhone 15 Pro', desc: '티타늄의 본성', tag: '인기', color: 'from-slate-500 to-gray-700', icon: Smartphone },
+                        { title: 'iPad Air', desc: '가벼운 파워', tag: '추천', color: 'from-sky-400 to-blue-500', icon: Smartphone },
+                    ].map((item, index) => (
+                        <motion.div
+                            key={index}
+                            className="relative h-[200px] rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => onNavigate('/shop/recommended')}
+                        >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
+                            <div className="absolute inset-0 backdrop-blur-3xl bg-white/30" />
+
+                            <div className="relative z-10 p-4 h-full flex flex-col justify-between">
+                                <div className="flex justify-between items-start">
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/50 text-gray-700 backdrop-blur-md`}>
+                                        {item.tag}
+                                    </span>
+                                    <div className="p-1.5 bg-white/40 rounded-lg backdrop-blur-sm">
+                                        <item.icon className="w-4 h-4 text-gray-700" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 leading-tight">{item.title}</h4>
+                                    <p className="text-xs text-gray-600 mt-0.5">{item.desc}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
+
 
             {/* Row 3: Frequently Visited */}
 
