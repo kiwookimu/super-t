@@ -9,5 +9,14 @@ export default defineConfig({
     allowedHosts: true,
     host: true,
     hmr: false,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name]-[hash]-${new Date().getTime()}.js`,
+        chunkFileNames: `assets/[name]-[hash]-${new Date().getTime()}.js`,
+        assetFileNames: `assets/[name]-[hash]-${new Date().getTime()}[extname]`,
+      }
+    }
   }
 })
