@@ -9,14 +9,14 @@ interface DesktopSidebarProps {
 
 const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ activeTab = 'home', onTabChange }) => {
     return (
-        <aside className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 z-50">
+        <header className="hidden md:flex items-center w-full h-16 fixed top-0 left-0 bg-white/80 backdrop-blur-md border-b border-gray-100/50 z-50 px-6 justify-between">
             {/* Logo Area */}
-            <div className="p-6 pb-2">
+            <div className="flex-shrink-0 cursor-pointer" onClick={() => onTabChange?.('home')}>
                 <BrandLogo size="medium" />
             </div>
 
             {/* Navigation Menu */}
-            <nav className="flex-1 px-4 py-6 space-y-2">
+            <nav className="flex items-center gap-2 lg:gap-8 flex-1 justify-center max-w-2xl mx-auto">
                 <NavItem
                     icon={<Home size={20} />}
                     label="홈"
@@ -49,20 +49,21 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ activeTab = 'home', onT
                 />
             </nav>
 
-            {/* User Profile / Footer */}
-            <div className="p-4 border-t border-gray-100">
-                <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
-                        <User size={20} />
+            {/* User Profile / Settings */}
+            <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="flex items-center gap-2 cursor-pointer group">
+                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
+                        <User size={16} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold text-gray-900 truncate">김기우님</p>
-                        <p className="text-xs text-gray-500 truncate">VIP 등급</p>
+                    <div className="hidden lg:block min-w-0 text-right">
+                        <p className="text-sm font-bold text-gray-900 leading-tight">김기우님</p>
                     </div>
-                    <Settings size={16} className="text-gray-400" />
                 </div>
+                <button className="p-2 text-gray-400 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-50">
+                    <Settings size={20} />
+                </button>
             </div>
-        </aside>
+        </header>
     );
 };
 
@@ -70,7 +71,7 @@ const NavItem = ({ icon, label, active, onClick }: { icon: React.ReactNode, labe
     return (
         <button
             onClick={onClick}
-            className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-200
+            className={`flex items-center gap-2 px-3 lg:px-4 py-2 rounded-full transition-all duration-200
                 ${active
                     ? 'bg-blue-50 text-blue-600 font-semibold'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
@@ -78,7 +79,7 @@ const NavItem = ({ icon, label, active, onClick }: { icon: React.ReactNode, labe
             `}
         >
             <div className={active ? 'text-blue-600' : 'text-gray-500'}>{icon}</div>
-            <span className="text-sm">{label}</span>
+            <span className="text-sm font-medium">{label}</span>
         </button>
     );
 };

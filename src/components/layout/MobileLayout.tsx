@@ -15,7 +15,7 @@ const ResponsiveLayout: React.FC<LayoutProps> = ({ children, activeTab = 'home',
             <DesktopSidebar activeTab={activeTab} onTabChange={onTabChange} />
 
             {/* Main Content Area */}
-            <main className="min-h-screen md:pl-64 transition-all duration-300">
+            <main className="min-h-screen md:pt-16 transition-all duration-300">
                 <div className="h-full">
                     {children}
                 </div>
