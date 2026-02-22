@@ -24,6 +24,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
     return (
         <div className="liquid-background min-h-screen pb-12">
+            {/* Moved Barcode Expansion to top of page */}
+            <div className="px-5 pt-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto relative z-40">
+                <BarcodeExpansion isOpen={isBarcodeExpanded} onClose={() => setIsBarcodeExpanded(false)} />
+            </div>
+
             {/* Hero Banner Area - Full Bleed */}
             <div className="relative -mt-2">
                 <BannerCarousel />
@@ -57,8 +62,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
             </div>
 
             <div className="space-y-4 px-5 pt-4 pb-2 max-w-md md:max-w-full xl:max-w-7xl mx-auto transition-all duration-300">
-                {/* Inline Barcode Expansion */}
-                <BarcodeExpansion isOpen={isBarcodeExpanded} onClose={() => setIsBarcodeExpanded(false)} />
 
                 {/* INT-009: 전환 온보딩 배너 */}
                 {showOnboarding && <OnboardingBanner onDismiss={() => setShowOnboarding(false)} />}
