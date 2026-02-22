@@ -245,12 +245,14 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         더보기
                     </Button>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                     {[
                         { title: 'Galaxy S24', desc: 'AI 폰의 시작', tag: 'HOT', color: 'from-violet-500 to-purple-600', icon: Smartphone },
                         { title: 'Z Flip6', desc: '콤팩트한 혁신', tag: 'NEW', color: 'from-blue-400 to-cyan-500', icon: Smartphone },
                         { title: 'Watch7', desc: '더 스마트하게', tag: 'SALE', color: 'from-emerald-400 to-teal-500', icon: RefreshCw },
                         { title: 'Buds3 Pro', desc: '압도적 사운드', tag: 'BEST', color: 'from-orange-400 to-red-500', icon: Headphones },
+                        { title: 'iPhone 15 Pro', desc: '티타늄의 본성', tag: '인기', color: 'from-slate-500 to-gray-700', icon: Smartphone },
+                        { title: 'iPad Air', desc: '가벼운 파워', tag: '추천', color: 'from-sky-400 to-blue-500', icon: Smartphone },
                     ].map((item, index) => (
                         <motion.div
                             key={index}
