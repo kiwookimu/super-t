@@ -190,7 +190,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             {/* Right Column: Personal Info & Menu (First on Mobile) */}
             <div className="xl:col-span-4 space-y-4 order-first xl:order-none">
                 {/* My Current Plan */}
-                <section className="glass-panel px-5 py-3 space-y-4">
+                <section className="glass-panel p-5 space-y-4">
                     <div className="flex justify-between items-center">
                         <span className="text-base font-bold text-gray-900">내 요금제</span>
                         <Button
