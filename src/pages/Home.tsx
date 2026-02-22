@@ -317,7 +317,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
 
             {/* Row 3: Frequently Visited */}
 
-            <section className="glass-panel p-5 space-y-2">
+            <section className="glass-panel p-5 space-y-2 xl:col-span-3">
                 <div className="flex justify-between items-center">
                     <h3 className="text-base font-bold text-gray-900">자주 찾는 화면</h3>
                     <Button
