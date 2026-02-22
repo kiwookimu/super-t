@@ -364,47 +364,6 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                 </div>
             </section>
 
-            {/* Row 3: 구독 카드 */}
-
-            <section className="glass-panel p-5 space-y-4">
-                <div className="flex justify-between items-center">
-                    <span className="text-base font-bold text-gray-900">구독</span>
-                    <Button
-                        size="small"
-                        variant="weak"
-                        onClick={() => onNavigate('shop-subscription')}
-                        className="bg-white/50 hover:bg-white/80 border-0"
-                    >
-                        전체보기
-                    </Button>
-                </div>
-                <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-md">
-                        <Layers className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                        <p className="text-base font-bold text-gray-900">T 우주 패스</p>
-                        <p className="text-sm text-gray-600">하나로 누리는 구독 혜택</p>
-                    </div>
-                </div>
-                <div className="space-y-2">
-                    <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
-                        <div className="flex items-center gap-2">
-                            <span className="text-sm text-gray-700">🎬 T 우주 패스 life</span>
-                            <span className="text-xs px-2 py-0.5 bg-purple-100 text-purple-600 rounded-full font-medium">추천</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
-                        <span className="text-sm text-gray-700">🎵 FLO 앤 데이터</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                    <button onClick={() => onNavigate('shop-subscription')} className="w-full bg-purple-50/50 rounded-xl p-4 border border-purple-100/50 flex justify-between items-center hover:bg-purple-50 transition-colors">
-                        <span className="text-sm text-gray-700">📺 Wavve 앤 데이터</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </button>
-                </div>
-            </section>
 
             {/* Row 3: 이동전화 문제 해결 카드 */}
 
