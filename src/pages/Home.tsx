@@ -190,7 +190,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             {/* Right Column: Personal Info & Menu (First on Mobile) */}
             <div className="xl:col-span-4 space-y-4 order-first xl:order-none">
                 {/* My Current Plan */}
-                <section className="glass-panel p-5 space-y-4">
+                <section className="glass-panel px-5 py-3 space-y-4">
                     <div className="flex justify-between items-center">
                         <span className="text-base font-bold text-gray-900">내 요금제</span>
                         <Button
@@ -227,24 +227,18 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                             />
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-200/50">
-                        <button onClick={() => onNavigate('/data/recharge')} className="flex flex-col items-center justify-center py-2 rounded-lg hover:bg-black/5 transition-colors group">
-                            <div className="p-2 rounded-full bg-blue-50 text-blue-600 mb-1 group-active:scale-95 transition-transform">
-                                <RefreshCw size={18} />
-                            </div>
+                    <div className="flex divide-x divide-gray-200/50 pt-2 border-t border-gray-200/50">
+                        <button onClick={() => onNavigate('/data/recharge')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                             <span className="text-xs font-semibold text-gray-600">데이터 충전</span>
                         </button>
-                        <button onClick={() => onNavigate('/payment/bill')} className="flex flex-col items-center justify-center py-2 rounded-lg hover:bg-black/5 transition-colors group">
-                            <div className="p-2 rounded-full bg-purple-50 text-purple-600 mb-1 group-active:scale-95 transition-transform">
-                                <Receipt size={18} />
-                            </div>
+                        <button onClick={() => onNavigate('/data/gift')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                            <span className="text-xs font-semibold text-gray-600">데이터 선물</span>
+                        </button>
+                        <button onClick={() => onNavigate('/payment/bill')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
                             <span className="text-xs font-semibold text-gray-600">요금 조회</span>
                         </button>
-                        <button onClick={() => onNavigate('/data/gift')} className="flex flex-col items-center justify-center py-2 rounded-lg hover:bg-black/5 transition-colors group">
-                            <div className="p-2 rounded-full bg-pink-50 text-pink-600 mb-1 group-active:scale-95 transition-transform">
-                                <Gift size={18} />
-                            </div>
-                            <span className="text-xs font-semibold text-gray-600">데이터 선물</span>
+                        <button onClick={() => onNavigate('/add-on')} className="flex-1 flex items-center justify-center pt-2 pb-[7px] rounded-lg hover:bg-black/5 transition-colors active:scale-95">
+                            <span className="text-xs font-semibold text-gray-600">부가서비스 조회</span>
                         </button>
                     </div>
                 </section>

@@ -279,6 +279,16 @@ const Benefits: React.FC<BenefitsProps> = () => {
                                         onToggle={() => setPaymentBarcode(!paymentBarcode)}
                                     />
                                 </div>
+
+                                {/* Coupon Link */}
+                                <div className="mt-3 flex items-center justify-between py-2.5 px-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors">
+                                    <div className="flex items-center gap-2">
+                                        <Gift className="w-4 h-4 text-rose-500" />
+                                        <span className="text-sm font-medium text-gray-700">사용 가능한 쿠폰</span>
+                                        <span className="px-1.5 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded-full">3</span>
+                                    </div>
+                                    <span className="text-gray-400 text-sm">›</span>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -343,6 +353,48 @@ const Benefits: React.FC<BenefitsProps> = () => {
                         </div>
                     </div>
 
+                    {/* Partner Benefits - 제휴 혜택 */}
+                    <section className="space-y-3">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-base font-bold text-gray-900">제휴 혜택</h2>
+                            <button className="text-sm text-gray-400">전체보기</button>
+                        </div>
+                        <div className="grid grid-cols-4 gap-3 md:gap-4">
+                            <PartnerItem icon={<Coffee className="w-6 h-6" />} label="카페" />
+                            <PartnerItem icon={<Film className="w-6 h-6" />} label="영화" />
+                            <PartnerItem icon={<Music className="w-6 h-6" />} label="음악" />
+                            <PartnerItem icon={<Utensils className="w-6 h-6" />} label="음식" />
+                        </div>
+                    </section>
+
+                    {/* Events Section - 진행 중인 이벤트 */}
+                    <section className="space-y-3">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-base font-bold text-gray-900">진행 중인 이벤트</h2>
+                            <button className="text-sm text-gray-400">전체보기</button>
+                        </div>
+                        <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-1 px-1 md:grid md:grid-cols-2 md:gap-4 md:mx-0 md:px-0 md:overflow-visible">
+                            {events.map((event) => (
+                                <motion.div
+                                    key={event.id}
+                                    className={`flex-shrink-0 w-64 md:w-auto rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br ${event.imageColor}`}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    <div className="p-4 text-white h-full flex flex-col">
+                                        <span className="inline-block px-2 py-0.5 bg-white/20 rounded text-[10px] font-bold mb-2 w-fit">
+                                            {event.tag}
+                                        </span>
+                                        <h3 className="font-bold text-lg">{event.title}</h3>
+                                        <p className="text-sm opacity-80 mt-1 flex-1">{event.description}</p>
+                                        <p className="text-xs opacity-60 mt-3 flex items-center gap-1">
+                                            <Clock className="w-3 h-3" /> {event.period}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </section>
+
                     {/* Category Tabs */}
                     <div className="flex gap-2 overflow-x-auto no-scrollbar md:flex-wrap">
                         {categories.map((cat) => (
@@ -359,46 +411,10 @@ const Benefits: React.FC<BenefitsProps> = () => {
                         ))}
                     </div>
 
-                    {/* Events Section */}
-                    {
-                        (activeCategory === 'all' || activeCategory === 'event') && (
-                            <section className="space-y-3">
-                                <div className="flex justify-between items-center">
-                                    <h2 className="text-base font-bold text-gray-900">진행 중인 이벤트</h2>
-                                    <button className="text-sm text-gray-400">전체보기</button>
-                                </div>
-                                <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-1 px-1 md:grid md:grid-cols-2 md:gap-4 md:mx-0 md:px-0 md:overflow-visible">
-                                    {events.map((event) => (
-                                        <motion.div
-                                            key={event.id}
-                                            className={`flex-shrink-0 w-64 md:w-auto rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br ${event.imageColor}`}
-                                            whileTap={{ scale: 0.98 }}
-                                        >
-                                            <div className="p-4 text-white h-full flex flex-col">
-                                                <span className="inline-block px-2 py-0.5 bg-white/20 rounded text-[10px] font-bold mb-2 w-fit">
-                                                    {event.tag}
-                                                </span>
-                                                <h3 className="font-bold text-lg">{event.title}</h3>
-                                                <p className="text-sm opacity-80 mt-1 flex-1">{event.description}</p>
-                                                <p className="text-xs opacity-60 mt-3 flex items-center gap-1">
-                                                    <Clock className="w-3 h-3" /> {event.period}
-                                                </p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            </section>
-                        )
-                    }
-
                     {/* Coupons Section */}
                     {
                         (activeCategory === 'all' || activeCategory === 'coupon') && (
                             <section className="space-y-3">
-                                <div className="flex justify-between items-center">
-                                    <h2 className="text-base font-bold text-gray-900">사용 가능 쿠폰</h2>
-                                    <button className="text-sm text-gray-400">전체보기</button>
-                                </div>
                                 <div className="space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
                                     {coupons.map((coupon) => (
                                         <CouponCard
@@ -412,23 +428,7 @@ const Benefits: React.FC<BenefitsProps> = () => {
                         )
                     }
 
-                    {/* Partner Benefits */}
-                    {
-                        (activeCategory === 'all' || activeCategory === 'partner') && (
-                            <section className="space-y-3">
-                                <div className="flex justify-between items-center">
-                                    <h2 className="text-base font-bold text-gray-900">제휴 혜택</h2>
-                                    <button className="text-sm text-gray-400">전체보기</button>
-                                </div>
-                                <div className="grid grid-cols-4 gap-3 md:gap-4">
-                                    <PartnerItem icon={<Coffee className="w-6 h-6" />} label="카페" />
-                                    <PartnerItem icon={<Film className="w-6 h-6" />} label="영화" />
-                                    <PartnerItem icon={<Music className="w-6 h-6" />} label="음악" />
-                                    <PartnerItem icon={<Utensils className="w-6 h-6" />} label="음식" />
-                                </div>
-                            </section>
-                        )
-                    }
+
                 </div>
             </div>
         </div >
