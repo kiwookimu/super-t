@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MobileLayout from './components/layout/MobileLayout';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
@@ -58,6 +58,11 @@ function App() {
   const [pageStack, setPageStack] = useState<string[]>([]);
   const [shopCategory, setShopCategory] = useState<'subscription' | 'phone' | undefined>(undefined);
 
+  // Global scroll restoration on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const handleNavigate = (page: string) => {
     setPageStack(prev => [...prev, currentPage]);
     // Handle shop category navigation
@@ -78,7 +83,6 @@ function App() {
         setActiveTab(page === 'all-menu' ? 'all' : page);
       }
     }
-    window.scrollTo(0, 0);
   };
 
   const handleBack = () => {
@@ -86,7 +90,6 @@ function App() {
       const lastPage = pageStack[pageStack.length - 1];
       setPageStack(prev => prev.slice(0, -1));
       setCurrentPage(lastPage);
-      window.scrollTo(0, 0);
     }
   };
 
