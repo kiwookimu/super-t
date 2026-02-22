@@ -292,12 +292,12 @@ const Benefits: React.FC<BenefitsProps> = () => {
                             <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center">
                                 <Gift className="w-5 h-5 text-rose-500" />
                             </div>
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-900">사용 가능한 쿠폰</h3>
-                                <p className="text-xs text-gray-500 mt-0.5"><span className="text-rose-500 font-bold">3장</span> 보관 중</p>
-                            </div>
+                            <h3 className="text-sm font-bold text-gray-900">사용 가능한 쿠폰</h3>
                         </div>
-                        <span className="text-gray-300 text-lg">›</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm font-bold text-rose-500">3개</span>
+                            <span className="text-gray-300 text-lg">›</span>
+                        </div>
                     </section>
                 </div>
 
