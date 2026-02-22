@@ -105,7 +105,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
 
                 {/* Home Screen Settings */}
-                <div className="flex justify-center py-6">
+                <div className="flex justify-center pt-6 pb-3">
                     <button
                         onClick={() => onNavigate('home-settings')}
                         className="glass-button flex items-center gap-2 px-5 py-2.5 rounded-full"
