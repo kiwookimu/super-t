@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Gift, ShoppingBag, Smartphone, Menu } from 'lucide-react';
 import DesktopSidebar from './DesktopSidebar';
+import Footer from './Footer';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -15,10 +16,11 @@ const ResponsiveLayout: React.FC<LayoutProps> = ({ children, activeTab = 'home',
             <DesktopSidebar activeTab={activeTab} onTabChange={onTabChange} />
 
             {/* Main Content Area */}
-            <main className="min-h-screen md:pt-16 transition-all duration-300">
-                <div className="h-full">
+            <main className="min-h-screen md:pt-16 transition-all duration-300 flex flex-col">
+                <div className="flex-1">
                     {children}
                 </div>
+                <Footer />
             </main>
 
             {/* Mobile Bottom Navigation (Hidden on Desktop) */}
