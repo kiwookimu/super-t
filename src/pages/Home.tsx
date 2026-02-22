@@ -245,15 +245,7 @@ const ManageSection: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
                         더보기
                     </Button>
                 </div>
-                <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-md">
-                        <Headphones className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                        <p className="text-base font-bold text-gray-900">빠르게 문제 해결</p>
-                        <p className="text-sm text-gray-600">자주 묻는 질문과 상담</p>
-                    </div>
-                </div>
+
                 <div className="space-y-2">
                     <button onClick={() => onNavigate('/support/faq')} className="w-full bg-emerald-50/50 rounded-xl p-4 border border-emerald-100/50 flex justify-between items-center hover:bg-emerald-50 transition-colors">
                         <span className="text-sm text-gray-700">📶 통화 품질 / 데이터 문제</span>
