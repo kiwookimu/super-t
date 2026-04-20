@@ -114,6 +114,26 @@ const Home: React.FC<HomeProps> = ({ onNavigate, homeMode = 'manage' }) => {
 
 
 
+                {/* Channel Strategy Promo Banner */}
+                <motion.div
+                    className="rounded-2xl overflow-hidden cursor-pointer"
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => onNavigate('channel-strategy')}
+                >
+                    <div className="bg-gradient-to-r from-blue-600 to-violet-600 p-4 flex items-center justify-between">
+                        <div>
+                            <p className="text-[10px] font-semibold text-blue-200 mb-0.5">Next 채널 To-Be</p>
+                            <p className="text-sm font-bold text-white leading-tight">하나로 완전히 통합된<br />고객 경험 원칙 보기</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                                <Layers className="w-5 h-5 text-white" />
+                            </div>
+                            <ChevronRight className="w-4 h-4 text-white/70" />
+                        </div>
+                    </div>
+                </motion.div>
+
                 {/* Home Screen Settings */}
                 <div className="flex justify-center pt-6 pb-3">
                     <button
