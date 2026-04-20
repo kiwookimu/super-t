@@ -10,6 +10,7 @@ import Benefits from './pages/Benefits';
 import Notifications from './pages/Notifications';
 import type { HomeMode } from './pages/HomeModeSelect';
 import Search from './pages/Search';
+import ChannelStrategy from './pages/ChannelStrategy';
 import { AnimatePresence, motion } from 'framer-motion';
 
 // Menu Pages
@@ -181,6 +182,7 @@ function App() {
           {currentPage === 'benefits' && <Benefits onNavigate={handleNavigate} />}
           {currentPage === 'shop' && <Shop onNavigate={handleNavigate} initialCategory={shopCategory} />}
           {currentPage === 'my' && <MyT onNavigate={handleNavigate} />}
+          {currentPage === 'channel-strategy' && <ChannelStrategy onNavigate={handleNavigate} />}
           {currentPage === 'notifications' && (
             <Notifications
               onBack={() => handleNavigate('home')}
